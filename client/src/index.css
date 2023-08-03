@@ -7,6 +7,10 @@
   font-family: "Noto Sans";
 }
 
+nav {
+  @apply inline-block w-screen space-x-4 px-3;
+}
+
 body {
   @apply bg-gradient-to-bl from-violet-600 to-violet-900 text-white;
   margin: 0;

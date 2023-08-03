@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="h-screen">
-      <div id="navBar" className="inline-block w-screen space-x-4 px-3">
+      <nav id="navBar">
         <img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
         <h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2"><a href="">ECHO</a></h1>
 
@@ -14,7 +14,7 @@ function App() {
         <button id="BtnLogin" class="float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2">
           Login
         </button>
-      </div>
+      </nav>
 
       <div className="flex items-center justify-center w-screen pl-10 pt-12 mt-10">
         <div>
