@@ -1,9 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:bold');
+
+#titleEcho {
+  font-family: "Noto Sans";
+}
+
+nav {
+  @apply inline-block w-screen space-x-4 px-3;
+}
 
 body {
-  @apply bg-gradient-to-b from-violet-600 to-violet-900 text-white;
+  @apply bg-gradient-to-bl from-violet-600 to-violet-900 text-white;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
