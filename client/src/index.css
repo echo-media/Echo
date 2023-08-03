@@ -17,13 +17,3 @@ code {
     monospace;
 }
 
-.Login {
-  position: absolute;
-  top: 1%;
-  right: 1%;
-}
-.SignUp {
-  position: absolute;
-  top: 1%;
-  right: 13%;
-}

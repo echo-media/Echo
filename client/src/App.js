@@ -4,10 +4,19 @@ import './App.css';
 function App() {
   return (
     <div className="h-screen">
-      
-      <div>
-        
+      <div id="navBar" className="space-x-5">
+        <button id="BtnSignUp" class="block font-bold rounded-full bg-green-500 hover:bg-green-700 text-white w-32 h-12">
+          Join Echo
+        </button>
+        <button id="BtnLogin" class="block font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12">
+          Login
+        </button>
+
       </div>
+
+      
+      
+      
     </div>
     /*<div class="App">
       <header className="App-header">
