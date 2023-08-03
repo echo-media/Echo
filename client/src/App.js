@@ -4,47 +4,42 @@ import './App.css';
 function App() {
   return (
     <div className="h-screen">
-      <div id="navBar" className="space-x-5">
-        <button id="BtnSignUp" class="block font-bold rounded-full bg-green-500 hover:bg-green-700 text-white w-32 h-12">
+      <div id="navBar" className="inline-block w-screen space-x-4 px-3">
+        <img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
+        <h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2"><a href="">ECHO</a></h1>
+
+        <button id="BtnSignUp" class="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2">
           Join Echo
         </button>
-        <button id="BtnLogin" class="block font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12">
+        <button id="BtnLogin" class="float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2">
           Login
         </button>
-
       </div>
 
-      
+      <div className="flex items-center justify-center w-screen pl-10 pt-12 mt-10">
+        <div>
+          <p className="text-4xl ml-20 pl-20">
+            <span className="font-black text-transparent bg-clip-text bg-gradient-to-bl from-violet-200 to-violet-400">Dive </span>Into The Depths
+            <br></br>
+            Of <span className="font-black text-transparent bg-clip-text bg-gradient-to-br from-violet-200 to-violet-400"> Modern Social Media</span>
+          </p>
+          
+          <br></br>
+          <p className="text-xl ml-20 mt-12 pl-20">
+          Connect and express yourself on our vibrant social media platform! Share your thoughts, photos, and videos with friends and followers in real-time. 
+          <br></br>Stay updated with the latest trends, news, and conversations on topics you love. 
+          <br></br>Engage in lively discussions, discover new interests, and build meaningful connections in a safe and inclusive online space. 
+          </p>
+        </div>
+        <img src={logo} alt="image of the app" className="w-7/12 float-right"></img>
+
+      </div>
+      <div className="flex items-center justify-center">
+          <p className="inline-block text-xl">Join the conversation, create your community, and let your voice be heard!</p>
+        </div>
       
       
     </div>
-    /*<div class="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div class = "Login">
-          <button class="login font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white py-3 px-6">
-            Login
-          </button>
-        </div>
-
-        <div class = "SignUp">
-          <button class="login font-bold rounded-full bg-violet-800 hover:bg-indigo-900 text-white py-3 px-6">
-            Join Echo
-          </button>
-        </div>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>*/
   );
 }
 
