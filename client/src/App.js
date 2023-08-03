@@ -9,6 +9,17 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <div class = "Login">
+          <button class="login font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white py-3 px-6">
+            Login
+          </button>
+        </div>
+
+        <div class = "SignUp">
+          <button class="login font-bold rounded-full bg-violet-800 hover:bg-indigo-900 text-white py-3 px-6">
+            Join Echo
+          </button>
+        </div>
         <a
           className="App-link"
           href="https://reactjs.org"
