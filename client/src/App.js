@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { Outlet, Link } from "react-router-dom";
+import './index.css';
 
 function App() {
   return (
@@ -8,14 +8,12 @@ function App() {
         <img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
         <h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2"><a href="">ECHO</a></h1>
 
-        <button type="button" id="BtnSignUp" class="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2">
+        <button id="BtnSignUp" class="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2">
           Join Echo
         </button>
-        <Link to="/pages/Login">
-          <button id="BtnLogin" class="float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2">
-            Login
-          </button>
-        </Link>
+        <button id="BtnLogin" class="float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2">
+          Login
+        </button>
       </nav>
 
       <div className="flex items-center justify-center w-screen pl-10 pt-12 mt-10">
@@ -40,7 +38,7 @@ function App() {
           <p className="inline-block text-xl">Join the conversation, create your community, and let your voice be heard!</p>
         </div>
       
-      <Outlet />
+      
     </div>
   );
 }
