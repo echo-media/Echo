@@ -8,13 +8,16 @@ function Main() {
       <nav id="navBar">
         <img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
         <h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2"><Link to = '/'>ECHO</Link></h1>
-
-        <button id="BtnSignUp" class="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2">
-          <Link to = '/signup'>Sign Up</Link>
-        </button>
-        <button id="BtnSignin" class="float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2"> 
-          <Link to = '/signin'>Sign In</Link> 
-        </button>
+        <Link to = '/signup'>
+          <button id="BtnSignUp" class="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2">
+            Sign Up
+          </button>
+        </Link>
+        <Link to = '/signin'>
+          <button id="BtnSignin" class="float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2"> 
+            Sign In
+          </button>
+        </Link> 
       </nav>
 
       <div className="flex items-center justify-center w-screen pl-10 pt-12 mt-10">

@@ -8,11 +8,15 @@ const SignIn = () => {
     <div className = 'h-screen'>
       <nav id="navBar">
         <img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
-        <h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2"><Link to = '/'>ECHO</Link></h1>
+        <Link to = '/'>
+					<h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2">
+						ECHO
+					</h1>
+				</Link>
         <Link to = '/signup'> 
-        <button id="BtnSignUp" class="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2">
-          Sign Up
-        </button> 
+          <button id="BtnSignUp" class="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2">
+            Sign Up
+          </button> 
         </Link>
       </nav>
         
