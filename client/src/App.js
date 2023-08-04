@@ -1,45 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
+import Main from './pages/main';
+import SignIn from './pages/signin';
+import SignUp from './pages/signup';
+import NoPage from './pages/nopage';
+import MainFeed from './pages/mainfeed';
 
 function App() {
   return (
-    <div className="h-screen">
-      <nav id="navBar">
-        <img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
-        <h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2"><a href="">ECHO</a></h1>
-
-        <button id="BtnSignUp" class="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2">
-          Join Echo
-        </button>
-        <button id="BtnLogin" class="float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2">
-          Login
-        </button>
-      </nav>
-
-      <div className="flex items-center justify-center w-screen pl-10 pt-12 mt-10">
-        <div>
-          <p className="text-4xl ml-20 pl-20">
-            <span className="font-black text-transparent bg-clip-text bg-gradient-to-bl from-violet-200 to-violet-400">Dive </span>Into The Depths
-            <br></br>
-            Of <span className="font-black text-transparent bg-clip-text bg-gradient-to-br from-violet-200 to-violet-400"> Modern Social Media</span>
-          </p>
-          
-          <br></br>
-          <p className="text-xl ml-20 mt-12 pl-20">
-          Connect and express yourself on our vibrant social media platform! Share your thoughts, photos, and videos with friends and followers in real-time. 
-          <br></br>Stay updated with the latest trends, news, and conversations on topics you love. 
-          <br></br>Engage in lively discussions, discover new interests, and build meaningful connections in a safe and inclusive online space. 
-          </p>
-        </div>
-        <img src={logo} alt="image of the app" className="w-7/12 float-right"></img>
-
-      </div>
-      <div className="flex items-center justify-center">
-          <p className="inline-block text-xl">Join the conversation, create your community, and let your voice be heard!</p>
-        </div>
-      
-      
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Main />} /> 
+        <Route path="/signin" element={<SignIn />} />
+        <Route path = '/signup' element = {<SignUp />} />
+        <Route path = '/nopage' element = {<NoPage /> } />
+        <Route path = '/mainfeed' element = {<MainFeed />} />
+      </Routes>
+    </Router>
+    
   );
 }
 

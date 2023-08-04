@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:bold');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:bold');
 
 #titleEcho {
   font-family: "Noto Sans";
 }
 
+#BtnSignUp {
+  font-family: 'Montserrat';
+}
 nav {
   @apply inline-block w-screen space-x-4 px-3;
 }
