@@ -38,8 +38,6 @@ function Main() {
       <div className="flex items-center justify-center">
           <p className="inline-block text-xl">Join the conversation, create your community, and let your voice be heard!</p>
         </div>
-      
-      
     </div>
   );
 }
