@@ -1,17 +1,38 @@
-import express from "express";
-import cors from "cors";
-import "./loadEnvironment.mjs";
-import records from "./routes/record.mjs";
+import express from "express"
+import dotenv from "dotenv"
+import mongoose from "mongoose"
+import userRoutes from "./routes/users.mjs"
+import postRoutes from "./routes/posts.mjs"
+import echoRoutes from "./routes/echoes.mjs"
+import commentRoutes from "./routes/comments.mjs"
 
-const PORT = 5050;
-const app = express();
+dotenv.config()
 
-app.use(cors());
-app.use(express.json());
+const app = express()
+const PORT = process.env.PORT
 
-app.use("/record", records);
+app.use(express.json())
 
-// start the Express server
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+app.use((req, res, next) => {
+    console.log(req.path, req.method)
+    next()
+})
+
+// routes
+app.use("/api/users", userRoutes)
+app.use("/api/posts", postRoutes)
+app.use("/api/echoes", echoRoutes)
+app.use("/api/comments", commentRoutes)
+
+// connect to db
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("connected to db")
+        app.listen(PORT, () => {
+            console.log(`listening on port ${PORT}`)
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+
