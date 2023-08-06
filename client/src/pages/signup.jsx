@@ -75,17 +75,11 @@ const SignUp = () => {
 							<input onChange = {(e) => setUsername(e.target.value)} value = {username} id = 'username' class = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='text'placeholder='Enter a username'>
 							</input>
 								
-							<label class = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'password'>
-								Password
-							</label>
 							
-							<input id = 'password' class = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='password'placeholder='Enter your password'>
-							</input>
-
 							<label class = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'password'>
-								Re-Enter Password
+								Enter Password
 							</label>
-							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' class = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='text'placeholder='Re-Enter your password'>
+							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' class = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='password'placeholder='Enter your password'>
 							</input>
 
 							<div class = 'flex  justify-center items-center'>
