@@ -24,4 +24,8 @@ const userSchema = new Schema({
     - liked comments
     - liked posts (maybe "liked" with type comment or post)
     */
-})
+}, { timestamps: true })
+
+const User = mongoose.model("User", userSchema)
+
+export default User;

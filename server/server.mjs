@@ -5,6 +5,7 @@ import userRoutes from "./routes/users.mjs"
 import postRoutes from "./routes/posts.mjs"
 import echoRoutes from "./routes/echoes.mjs"
 import commentRoutes from "./routes/comments.mjs"
+import cors from "cors"
 
 dotenv.config()
 
@@ -12,6 +13,11 @@ const app = express()
 const PORT = process.env.PORT
 
 app.use(express.json())
+app.use(cors( {
+    origin: 'http://localhost:3000', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    credentials: true,
+} ));
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
