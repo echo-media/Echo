@@ -50,41 +50,40 @@ const SignUp = () => {
 					</h1>
 				</Link>
 				<Link to = '/signin'>
-					<button id = 'BtnSignIn' class = 'float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2 mx-2'> 
+					<button id = 'BtnSignIn' className = 'float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2 mx-2'> 
 						Sign In
 					</button>
 				</Link>
 			</nav>
 
-			<div class="flex justify-center items-center h-screen">
-				<div class="relative top-[-100px] h-1/2 rounded-3xl p-4 ">
-					<div class = 'flex justify-center items-center'>
-						<h1 class="flex justify-center text-xl font-bold mb-4">Sign Up to Echo</h1>  
+			<div className="flex justify-center">
+				<div className="relative top-[100px]">
+					<div className = 'flex justify-center items-center'>
+						<h1 className="flex justify-center text-xl font-bold mb-4">Sign Up to Echo</h1>  
 					</div>
 					<form className = "create" onSubmit = {handleSubmit}> 
-						<div class = 'mb-4'>
-							<label class = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'email'>
+						<div className = 'mb-4'>
+							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'email'>
 								Email
 							</label>
-							<input onChange = {(e) => setEmail(e.target.value)} value = {email} id = 'email' class = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='text'placeholder='Enter your email'>
+							<input onChange = {(e) => setEmail(e.target.value)} value = {email} id = 'email' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='text'placeholder='Enter your email'>
 							</input>
 
-							<label class = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'username'>
+							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'username'>
 								Username
 							</label>
-							<input onChange = {(e) => setUsername(e.target.value)} value = {username} id = 'username' class = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='text'placeholder='Enter a username'>
+							<input onChange = {(e) => setUsername(e.target.value)} value = {username} id = 'username' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='text'placeholder='Enter a username'>
 							</input>
 								
 							
-							<label class = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'password'>
+							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'password'>
 								Enter Password
 							</label>
-							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' class = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='password'placeholder='Enter your password'>
+							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='password'placeholder='Enter your password'>
 							</input>
 
-							<div class = 'flex  justify-center items-center'>
-								
-									<button id = 'BtnConfirm' class = 'font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2'> 
+							<div className = 'flex justify-center items-center'>
+									<button id = 'BtnConfirm' className = 'font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2'> 
 										Sign Up
 									</button>  
 								

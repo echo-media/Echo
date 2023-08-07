@@ -11,9 +11,9 @@ const NoPage = () => {
         <h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2"><Link to = '/'>ECHO</Link></h1>
       </nav>
 
-      <div class="flex flex-col justify-center items-center h-screen">
-        <h1 class = 'text-lg font-bold'> ERROR 404: PAGE NOT FOUND </h1>
-        <h1 class = 'text-lg font-bold'> <Link to = '/'>Click Here to Return to Landing</Link></h1>
+      <div className="flex flex-col justify-center items-center h-screen">
+        <h1 className = 'text-lg font-bold'> ERROR 404: PAGE NOT FOUND </h1>
+        <h1 className = 'text-lg font-bold'> <Link to = '/'>Click Here to Return to Landing</Link></h1>
       </div>
     </div>
   );

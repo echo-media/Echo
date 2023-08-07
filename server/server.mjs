@@ -28,6 +28,7 @@ app.use("/api/users", userRoutes)
 app.use("/api/posts", postRoutes)
 app.use("/api/comments", commentRoutes)
 
+
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
