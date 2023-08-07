@@ -9,33 +9,31 @@ const getUsers = async (req, res) => {
 
 //get a single user
 const getUser = async (req, res) => {
-    const { id } = req.params
+    const { username } = req.params
+    const user = await User.findOne({username: username})
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: "No such user!"})
-    }
-
-    const user = await User.findById(id)
-
-    if ( !user ) {
+    if (!user) {
         res.status(404).json({error: "No such user!"})
+    } else { 
+        res.status(200).json(user)
     }
-    res.status(200).json(user)
 }
 
 //create a new user 
 const createUser = async (req, res) => {
     const { username, email, password } = req.body
-
-    try {
-        const newuser = await User.create({ username, email, password })
-        res.status(201).json(newuser)
-    } catch (error) {
-        res.status(400).json({error: error.message})
+    
+    if (await User.findOne({username: username}) == null) {
+        try {
+            const newuser = await User.create({ username, email, password })
+            res.status(201).json(newuser)
+        } catch (error) {
+            res.status(400).json({error: error.message})
+        }
+    } else {
+        res.status(400).json({error: `User '${username}' already exists`})
     }
-
 }
-
 
 //delete a user
 const deleteUser = async (res, req) => {
@@ -53,6 +51,7 @@ const deleteUser = async (res, req) => {
 
     res.status(200).json(user)
 }
+
 //update a user
 const updateUser = async (res, req) => {
     const { id } = req.params
@@ -70,8 +69,6 @@ const updateUser = async (res, req) => {
     }
 
     res.status(200).json(user)
-
-
 }
 
 export {getUser, getUsers, createUser, deleteUser, updateUser};
