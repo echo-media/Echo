@@ -3,7 +3,6 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import userRoutes from "./routes/users.mjs"
 import postRoutes from "./routes/posts.mjs"
-import echoRoutes from "./routes/echoes.mjs"
 import commentRoutes from "./routes/comments.mjs"
 import cors from "cors"
 
@@ -27,7 +26,6 @@ app.use((req, res, next) => {
 // routes
 app.use("/api/users", userRoutes)
 app.use("/api/posts", postRoutes)
-app.use("/api/echoes", echoRoutes)
 app.use("/api/comments", commentRoutes)
 
 // connect to db

@@ -15,17 +15,43 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    /* 
-    need to add:
-    - followers
-    - following
-    - posts (and echoes in one)
-    - comments
-    - liked comments
-    - liked posts (maybe "liked" with type comment or post)
-    */
-}, { timestamps: true })
+    followers: [{
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        },
+    }],
+    following: [{
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        },
+    }],
+    posts: [{
+        post: {
+            type: Schema.Types.ObjectId,
+            ref: "Post"
+        },
+    }],
+    likedPosts: [{
+        post: {
+          type: Schema.Types.ObjectId,
+          ref: "Post"
+        },
+    }],
+    comments: [{
+        comment: {
+            type: Schema.Types.ObjectId,
+            ref: "Comment",
+        },
+    }],
+    likedComments: [{
+        comment: {
+            type: Schema.Types.ObjectId,
+            ref: "Comment",
+        },
+    }]
+}, {timestamps: true})
 
 const User = mongoose.model("User", userSchema)
-
 export default User;
