@@ -21,7 +21,7 @@ const SignIn = () => {
       </nav>
         
       <div className="flex justify-center">
-        <div className = "relative top-[100px]">
+        <div className = "relative top-[200px]">
           <div className = 'flex justify-center items-center'>
             <h1 className="text-xl font-bold mb-4">Sign In to Echo</h1>  
           </div>

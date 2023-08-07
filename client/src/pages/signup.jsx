@@ -50,14 +50,14 @@ const SignUp = () => {
 					</h1>
 				</Link>
 				<Link to = '/signin'>
-					<button id = 'BtnSignIn' className = 'float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2 mx-2'> 
+					<button id = 'BtnSignIn' className = 'float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2 mr-32'> 
 						Sign In
 					</button>
 				</Link>
 			</nav>
 
 			<div className="flex justify-center">
-				<div className="relative top-[100px]">
+				<div className="relative top-[200px]">
 					<div className = 'flex justify-center items-center'>
 						<h1 className="flex justify-center text-xl font-bold mb-4">Sign Up to Echo</h1>  
 					</div>
@@ -66,20 +66,20 @@ const SignUp = () => {
 							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'email'>
 								Email
 							</label>
-							<input onChange = {(e) => setEmail(e.target.value)} value = {email} id = 'email' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='text'placeholder='Enter your email'>
+							<input onChange = {(e) => setEmail(e.target.value)} value = {email} id = 'email' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='text'placeholder='Enter your email'>
 							</input>
 
 							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'username'>
 								Username
 							</label>
-							<input onChange = {(e) => setUsername(e.target.value)} value = {username} id = 'username' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='text'placeholder='Enter a username'>
+							<input onChange = {(e) => setUsername(e.target.value)} value = {username} id = 'username' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='text'placeholder='Enter a username'>
 							</input>
 								
 							
 							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'password'>
 								Enter Password
 							</label>
-							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950 mx-4' type ='password'placeholder='Enter your password'>
+							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='password'placeholder='Enter your password'>
 							</input>
 
 							<div className = 'flex justify-center items-center'>
