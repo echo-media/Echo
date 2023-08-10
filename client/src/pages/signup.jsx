@@ -1,8 +1,8 @@
-import react from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../logo.svg';
-import '../index.css';
-import { useNavigate } from "react-router";
+import react from 'react'
+import { Link } from 'react-router-dom'
+import logo from '../logo.svg'
+import '../index.css'
+import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
 
 const SignUp = () => {
@@ -12,33 +12,34 @@ const SignUp = () => {
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
-	e.preventDefault()
+    e.preventDefault();
 
-	const User = { username, email, password }
+    const user = { username, email, password };
 
-	const response = await fetch ("http://localhost:4000/api/users/signup", {
-		method: "POST",
-		body: JSON.stringify(User),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
+    try {
+        const response = await fetch("http://localhost:4000/api/users/signup", {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
 
-	const json = await response.json()
-
-	if (!response.ok) {
-		setError(json.error)
-	}
-	if (response.ok) {
-		setUsername("")
-		setEmail("")
-		setPassword("")
-		setError(null)
-        console.log("new user created!", json)
-	}
-
-
-  }
+        if (response.ok) {
+            const json = await response.json();
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            setError(null);
+            console.log("New user created!", json);
+        } else {
+            const json = await response.json();
+            setError(json.error);
+        }
+    } catch (error) {
+        setError("An error occurred while processing your request.");
+    }
+};
 
   return (
     <div className = 'h-screen'> 
