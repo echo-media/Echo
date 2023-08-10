@@ -1,16 +1,18 @@
 import express from "express"
-import {createUser, getUser, getUsers, deleteUser, updateUser} from "../controllers/userController.mjs"
+import {createUser, getUser, getUsers, deleteUser, updateUser, loginUser} from "../controllers/userController.mjs"
 
 const router = express.Router()
 
 router.get("/", getUsers)
 
-router.post("/", createUser)
+router.post("/signup", createUser)
 
 router.get("/:username", getUser)
 
 router.patch("/:id", updateUser)
 
 router.delete("/delete/:id", deleteUser)
+
+router.post("/login", loginUser)
 
 export default router

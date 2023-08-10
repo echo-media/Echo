@@ -16,7 +16,7 @@ const SignUp = () => {
 
 	const User = { username, email, password }
 
-	const response = await fetch ("http://localhost:4000/api/users", {
+	const response = await fetch ("http://localhost:4000/api/users/signup", {
 		method: "POST",
 		body: JSON.stringify(User),
 		headers: {
@@ -50,7 +50,7 @@ const SignUp = () => {
 					</h1>
 				</Link>
 				<Link to = '/signin'>
-					<button id = 'BtnSignIn' className = 'float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2 mr-32'> 
+					<button id = 'BtnSignIn' className = 'float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2'> 
 						Sign In
 					</button>
 				</Link>
