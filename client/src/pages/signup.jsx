@@ -1,15 +1,16 @@
 import react from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../logo.svg'
 import '../index.css'
-import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
+
 
 const SignUp = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(null)
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +33,7 @@ const SignUp = () => {
             setPassword("");
             setError(null);
             console.log("New user created!", json);
+			navigate("/signin");
         } else {
             const json = await response.json();
             setError(json.error);

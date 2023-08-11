@@ -1,9 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../logo.svg'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"
 import '../index.css';
 
+
+
+
 const SignIn = () => {
+
+  
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState(null)
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const user = { email, password };
+
+    try {
+        const response = await fetch("http://localhost:4000/api/users/login", {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (response.ok) {
+            const json = await response.json();
+            setEmail("");
+            setPassword("");
+            setError(null);
+            console.log("New user created!", json);
+            navigate("/mainfeed");
+        } else {
+            const json = await response.json();
+            setError(json.error);
+        }
+    } catch (error) {
+        setError("An error occurred while processing your request.");
+    }
+};
+
   return (
     <div className = 'h-screen'>
       <nav id="navBar">
@@ -25,26 +65,26 @@ const SignIn = () => {
           <div className = 'flex justify-center items-center'>
             <h1 className="text-xl font-bold mb-4">Sign In to Echo</h1>  
           </div>
-          <form> 
+          <form onSubmit = {handleSubmit}> 
             <div className = 'mb-4'>
               <label className = 'flex justify-center text-white text-sm font-semibold mb-1' for = 'email'>
                   Email
               </label>
-              <input id = 'email' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='email'placeholder='Enter your email'>
+              <input onChange={(e) => setEmail(e.target.value)} id = 'email' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='email'placeholder='Enter your email'>
               </input>
             
               <label className = 'flex justify-center text-white text-sm font-semibold mb-1' for = 'password'>
                   Password
               </label>
-              <input id = 'password' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='password'placeholder='Enter your password'>
+              <input onChange={(e) => setPassword(e.target.value)} id = 'password' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='password'placeholder='Enter your password'>
               </input>
 
               <div class = 'flex justify-center items-center'>
-                <Link to = '/mainfeed'>
+                
                   <button id = 'BtnConfirm' className = ' font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2'> 
                     Sign In
                   </button>  
-                </Link>
+                
               </div>
             </div>
           </form> 
