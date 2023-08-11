@@ -33,8 +33,8 @@ const SignIn = () => {
             setEmail("");
             setPassword("");
             setError(null);
-            console.log("New user created!", json);
-            navigate("/mainfeed");
+            console.log("Valid Sign In", json);
+            navigate("/mainfeed")
         } else {
             const json = await response.json();
             setError(json.error);
