@@ -7,8 +7,6 @@ import jwt from "jsonwebtoken"
 //create token function 
 const createToken = (_id) => {
     return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "1d" })
-
-
 }
 
 //get all users
@@ -33,13 +31,23 @@ const getUser = async (req, res) => {
 const createUser = async (req, res) => {
     const { username, email, password } = req.body
 
+    let emptyFields = []
+    if (!username) {
+        emptyFields.push("username")
+    } 
+    if (!email) {
+        emptyFields.push("email")
+    } 
+    if (!password) {
+        emptyFields.push("password")
+    }
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash( password, salt )
 
     
     
-    if (!username || !email || !password) {
-        res.status(400).json({error: "All fields must be filled!"})
+    if (emptyFields.length > 0) {
+        res.status(400).json({error: "All fields must be filled!", emptyFields})
     }
     else if (await User.findOne({username: username})) { 
         res.status(400).json({error: "Username is taken!"})
@@ -52,7 +60,7 @@ const createUser = async (req, res) => {
 
     }
     else if (!validator.isStrongPassword(password)) {
-        res.status(400).json({error: "Weak password! Try adding special charachters and numbers."})
+        res.status(400).json({error: "Weak password! Try adding special characters and numbers."})
     }
     else {
 
@@ -109,9 +117,16 @@ const updateUser = async (res, req) => {
 //log into a user account
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
+    let emptyFields = []
 
-    if (!email || !password) {
-        return res.status(400).json({ error: "All fields must be filled" });
+    if (!email) {
+        emptyFields.push("email")
+    } 
+    if (!password) {
+        emptyFields.push("password")
+    }
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: "All fields must be filled!", emptyFields});
     }
 
     try {

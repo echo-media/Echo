@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from '../logo.svg'
 import { Link, useNavigate } from "react-router-dom"
 import '../index.css';
@@ -7,11 +7,10 @@ import '../index.css';
 
 
 const SignIn = () => {
-
-  
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(null)
+  const [emptyFields, setEmptyFields] = useState([])
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
@@ -29,14 +28,10 @@ const SignIn = () => {
         });
 
         if (response.ok) {
-            const json = await response.json();
-            setEmail("");
-            setPassword("");
-            setError(null);
-            console.log("Valid Sign In", json);
             navigate("/mainfeed")
         } else {
             const json = await response.json();
+            setEmptyFields(json.emptyFields || []);
             setError(json.error);
         }
     } catch (error) {
@@ -66,26 +61,24 @@ const SignIn = () => {
             <h1 className="text-xl font-bold mb-4">Sign In to Echo</h1>  
           </div>
           <form onSubmit = {handleSubmit}> 
-            <div className = 'mb-4'>
+            <div className = 'mb-4 w-screen max-w-xs'>
               <label className = 'flex justify-center text-white text-sm font-semibold mb-1' for = 'email'>
                   Email
               </label>
-              <input onChange={(e) => setEmail(e.target.value)} id = 'email' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='email'placeholder='Enter your email'>
+              <input onChange={(e) => setEmail(e.target.value)} id = 'email' className = {emptyFields.includes('email') ? 'error': ''} type ='text' placeholder='Enter your email'>
               </input>
             
               <label className = 'flex justify-center text-white text-sm font-semibold mb-1' for = 'password'>
                   Password
               </label>
-              <input onChange={(e) => setPassword(e.target.value)} id = 'password' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='password'placeholder='Enter your password'>
+              <input onChange={(e) => setPassword(e.target.value)} id = 'password' className = {emptyFields.includes('password') ? 'error': ''} type ='password' placeholder='Enter your password'>
               </input>
-
               <div class = 'flex justify-center items-center'>
-                
-                  <button id = 'BtnConfirm' className = ' font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2'> 
-                    Sign In
-                  </button>  
-                
+                <button id = 'BtnConfirm' className = ' font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2'> 
+                  Sign In
+                </button>  
               </div>
+              {error && <div className="flex justify-center items-center font-semibold border-solid border-2 border-red-600 rounded-md px-1 mt-2 bg-red-100 text-red-500">{error}</div>}
             </div>
           </form> 
         </div>

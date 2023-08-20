@@ -1,8 +1,7 @@
-import react from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../logo.svg'
 import '../index.css'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 
 const SignUp = () => {
@@ -10,6 +9,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(null)
+	const [emptyFields, setEmptyFields] = useState([])
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -18,30 +18,25 @@ const SignUp = () => {
     const user = { username, email, password };
 
     try {
-        const response = await fetch("http://localhost:4000/api/users/signup", {
-            method: "POST",
-            body: JSON.stringify(user),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
+			const response = await fetch("http://localhost:4000/api/users/signup", {
+				method: "POST",
+				body: JSON.stringify(user),
+				headers: {
+						"Content-Type": "application/json",
+					},
+			});
 
-        if (response.ok) {
-            const json = await response.json();
-            setUsername("");
-            setEmail("");
-            setPassword("");
-            setError(null);
-            console.log("New user created!", json);
-			navigate("/signin");
-        } else {
-            const json = await response.json();
-            setError(json.error);
-        }
+			if (response.ok) {
+				navigate("/signin");
+			} else {
+				const json = await response.json();
+				setEmptyFields(json.emptyFields || []);
+				setError(json.error);
+			}
     } catch (error) {
-        setError("An error occurred while processing your request.");
+      setError("An error occurred while processing your request.");
     }
-};
+	};
 
   return (
     <div className = 'h-screen'> 
@@ -58,40 +53,35 @@ const SignUp = () => {
 					</button>
 				</Link>
 			</nav>
-
 			<div className="flex justify-center">
 				<div className="relative top-[200px]">
 					<div className = 'flex justify-center items-center'>
 						<h1 className="flex justify-center text-xl font-bold mb-4">Sign Up to Echo</h1>  
 					</div>
 					<form className = "create" onSubmit = {handleSubmit}> 
-						<div className = 'mb-4'>
+						<div className = 'mb-4 w-screen max-w-xs'>
 							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'email'>
 								Email
 							</label>
-							<input onChange = {(e) => setEmail(e.target.value)} value = {email} id = 'email' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='text'placeholder='Enter your email'>
+							<input onChange = {(e) => setEmail(e.target.value)} value = {email} id = 'email' className = {emptyFields.includes('email') ? 'error': ''}  type ='text' placeholder='Enter your email'>
 							</input>
-
 							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'username'>
 								Username
 							</label>
-							<input onChange = {(e) => setUsername(e.target.value)} value = {username} id = 'username' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='text'placeholder='Enter a username'>
+							<input onChange = {(e) => setUsername(e.target.value)} value = {username} id = 'username' className = {emptyFields.includes('username') ? 'error': ''} type ='text' placeholder='Enter a username'>
 							</input>
-								
-							
 							<label className = 'flex justify-center text-white text-sm font-semibold mx-4' for = 'password'>
 								Enter Password
 							</label>
-							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' className = 'w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950' type ='password'placeholder='Enter your password'>
+							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' className = {emptyFields.includes('password') ? 'error': ''} type ='password' placeholder='Enter your password'>
 							</input>
-
 							<div className = 'flex justify-center items-center'>
-									<button id = 'BtnConfirm' className = 'font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2'> 
-										Sign Up
-									</button>  
-								
+								<button id = 'BtnConfirm' className = 'font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2'> 
+									Sign Up
+								</button>  
 							</div>
-          	</div>
+							{error && <div className="flex justify-center items-center font-semibold border-solid border-2 border-red-600 rounded-md px-1 mt-2 bg-red-100 text-red-500">{error}</div>}
+						</div>
         	</form> 
       	</div>
     	</div>
