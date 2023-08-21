@@ -45,7 +45,3 @@ input {
 .main-paragraph {
   @apply text-sm sm:text-base md:text-xl md:px-10 self-center
 }
-
-.placeholder {
-  @apply text-sm sm:text-base px-5 md:px-10 md:text-xl pb-6
-}
