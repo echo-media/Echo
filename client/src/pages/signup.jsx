@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../logo.svg'
 import '../index.css'
 import { useState } from "react"
+import NavBar from "../components/navbar.jsx"
 
 
 const SignUp = () => {
@@ -40,19 +41,9 @@ const SignUp = () => {
 
   return (
     <div className = 'h-screen'> 
-			<nav id="navBar">
-				<img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
-				<Link to = '/'>
-					<h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2">
-						ECHO
-					</h1>
-				</Link>
-				<Link to = '/signin'>
-					<button id = 'BtnSignIn' className = 'float-right font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2'> 
-						Sign In
-					</button>
-				</Link>
-			</nav>
+			
+		<NavBar />
+
 			<div className="flex justify-center">
 				<div className="relative top-[200px]">
 					<div className = 'flex justify-center items-center'>

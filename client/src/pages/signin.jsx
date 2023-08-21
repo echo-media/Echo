@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from '../logo.svg'
 import { Link, useNavigate } from "react-router-dom"
 import '../index.css';
+import NavBar from "../components/navbar.jsx"
 
 
 
@@ -41,19 +42,8 @@ const SignIn = () => {
 
   return (
     <div className = 'h-screen'>
-      <nav id="navBar">
-        <img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
-        <Link to = '/'>
-					<h1 id="titleEcho" className="float-left select-none text-5xl font-bold my-2">
-						ECHO
-					</h1>
-				</Link>
-        <Link to = '/signup'> 
-          <button id="BtnSignUp" className="float-right font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2 mx-2">
-            Sign Up
-          </button> 
-        </Link>
-      </nav>
+      
+      <NavBar />
         
       <div className="flex justify-center">
         <div className = "relative top-[200px]">
