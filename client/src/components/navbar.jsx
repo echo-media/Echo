@@ -6,23 +6,24 @@ import '../index.css';
 const NavBar = () => { 
     return (
       <header> 
-        <div>
-          <img src={logo} alt="LOGO" className="float-left w-20 my-1"></img>
-          <h1 className = "float-left select-none text-5xl font-bold my-2"> 
+        <div className="w-full pt-1">
             <Link to = "/"> 
-              ECHO 
+              <img src={logo} alt="LOGO" className="float-left w-12 md:w-14 lg:w-20 pt-1"></img>
+              <h1 className = "float-left select-none font-bold text-3xl md:text-4xl md:pt-0.5 lg:text-5xl lg:pt-2"> 
+                ECHO 
+              </h1> 
             </Link>
-          </h1> 
+          
           <div className = "float-right"> 
             <Link to = "/signup"> 
-              <button className = " font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2 mx-2"> 
+              <button className = "bg-purple-400 hover:bg-purple-500 text-white navbarbtn"> 
                 Sign Up
               </button>
             </Link>
             <Link to = "/signin"> 
-              <button className = " font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2 mx-2"> 
+              <button className = "bg-indigo-800 hover:bg-indigo-900 text-white navbarbtn"> 
                 Sign In
-              </button> 
+              </button>
             </Link>
           </div>
         </div>
