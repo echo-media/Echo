@@ -10,34 +10,32 @@ function Main() {
     <div className="h-full">
       <NavBar />
 
-      <div className="flex-wrap flex flex-col items-center justify-center w-full px-5 pt-6 md:pt-12 lg:px-10 lg:flex-nowrap">
+      <div className="flex-wrap flex flex-col items-center justify-center w-full px-5 pt-6 md:pt-14 lg:flex-nowrap">
         <div>
           <p className="text-2xl sm:text-3xl md:text-4xl md:pl-10 lg:text-5xl lg:pl-40">
             <span className="font-black text-transparent bg-clip-text bg-gradient-to-bl from-violet-200 to-violet-400">Dive </span>Into The Depths
             <br></br>
             Of <span className="font-black text-transparent bg-clip-text bg-gradient-to-br from-violet-200 to-violet-400"> Modern Social Media</span>
           </p>
-          <div className="pt-3 md:pt-8 lg:pt-12 lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:auto-cols-max lg:auto-rows-max">
-            <p className="main-paragraph place-self-center">
+          <div className="pt-3 md:pt-8 lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:auto-cols-max lg:auto-rows-max">
+            <p className="main-paragraph">
             Connect and express yourself on our vibrant social media platform! Share your thoughts, photos, and videos with friends and followers in real-time. 
             </p>
-            <img src={logo} alt="image of the app" className="md:w-full lg:float-right"></img>
-            <p className="main-paragraph place-self-center">
+            <img src={logo} alt="image of the app" className="md:w-full"></img>
+            <p className="main-paragraph">
             Stay updated with the latest trends, news, and conversations on topics you love. 
             </p>
-            <img src={logo} alt="image of the app" className="md:w-full lg:float-right"></img>
-            <p className="main-paragraph place-self-center">
+            <img src={logo} alt="image of the app" className="md:w-full"></img>
+            <p className="main-paragraph">
             Engage in lively discussions, discover new interests, and build meaningful connections in a safe and inclusive online space. 
             </p>
-            <img src={logo} alt="image of the app" className="md:w-full lg:float-right"></img>
+            <img src={logo} alt="image of the app" className="md:w-full"></img>
 
           </div>
         </div>
-        
-
       </div>
-      <div className="flex items-center justify-center">
-          <p className="inline-block text-sm sm:text-base px-5 md:px-10 md:text-xl pb-6">Join the conversation, create your community, and let your voice be heard!</p>
+      <div className="px-5 flex items-center justify-center">
+          <p className="main-paragraph pb-6">Join the conversation, create your community, and let your voice be heard!</p>
         </div>
     </div>
   );
