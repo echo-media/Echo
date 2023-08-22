@@ -43,7 +43,7 @@ const SignIn = () => {
   return (
     <div className = 'h-screen'>
       
-      <NavBar />
+      
         
       <div className="flex justify-center">
         <div className = "relative top-[200px]">

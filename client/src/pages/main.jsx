@@ -8,7 +8,7 @@ import NavBar from "../components/navbar.jsx"
 function Main() {
   return (
     <div className="h-full">
-      <NavBar />
+      
 
       <div className="flex-wrap flex flex-col items-center justify-center w-full px-5 pt-6 md:pt-14 lg:flex-nowrap">
         <div>

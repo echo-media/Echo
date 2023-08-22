@@ -28,6 +28,7 @@ const SignUp = () => {
 			});
 
 			if (response.ok) {
+				console.log(user);
 				navigate("/signin");
 			} else {
 				const json = await response.json();
@@ -42,7 +43,7 @@ const SignUp = () => {
   return (
     <div className = 'h-screen'> 
 			
-		<NavBar />
+		
 
 			<div className="flex justify-center">
 				<div className="relative top-[200px]">

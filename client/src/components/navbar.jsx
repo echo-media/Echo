@@ -15,14 +15,14 @@ const NavBar = () => {
             </Link>
           
           <div className = "float-right"> 
-            <Link to = "/signup"> 
+            <Link to = "/signin"> 
               <button className = "bg-purple-400 hover:bg-purple-500 text-white navbarbtn"> 
-                Sign Up
+                Sign In
               </button>
             </Link>
-            <Link to = "/signin"> 
+            <Link to = "/signup"> 
               <button className = "bg-indigo-800 hover:bg-indigo-900 text-white navbarbtn"> 
-                Sign In
+                Sign Up
               </button>
             </Link>
           </div>
