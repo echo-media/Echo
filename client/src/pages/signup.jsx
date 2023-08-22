@@ -1,44 +1,22 @@
-import { Link, useNavigate } from 'react-router-dom'
-import logo from '../logo.svg'
 import '../index.css'
 import { useState } from "react"
-import NavBar from "../components/navbar.jsx"
-
+import { useSignup } from "../hooks/useSignup.jsx"
 
 const SignUp = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
-	const [emptyFields, setEmptyFields] = useState([])
-  const navigate = useNavigate();
+  const [emptyFields, setEmptyFields] = useState([])
+  const {signup, error, isLoading} = useSignup()
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const user = { username, email, password };
+    await signup(username, email, password);
 
-    try {
-			const response = await fetch("http://localhost:4000/api/users/signup", {
-				method: "POST",
-				body: JSON.stringify(user),
-				headers: {
-						"Content-Type": "application/json",
-					},
-			});
-
-			if (response.ok) {
-				console.log(user);
-				navigate("/signin");
-			} else {
-				const json = await response.json();
-				setEmptyFields(json.emptyFields || []);
-				setError(json.error);
-			}
-    } catch (error) {
-      setError("An error occurred while processing your request.");
-    }
-	};
+    
+	}
 
   return (
     <div className = 'h-screen'> 
