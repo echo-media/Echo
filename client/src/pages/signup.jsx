@@ -1,6 +1,6 @@
 import '../index.css'
 import { useState } from "react"
-import { useSignup } from "../hooks/useSignup.jsx"
+import { useSignup } from "../hooks/useSignUp.jsx"
 
 const SignUp = () => {
   const [username, setUsername] = useState("")
@@ -14,15 +14,12 @@ const SignUp = () => {
     e.preventDefault();
 
     await signup(username, email, password);
-
     
 	}
 
   return (
     <div className = 'h-screen'> 
 			
-		
-
 			<div className="flex justify-center">
 				<div className="relative top-[200px]">
 					<div className = 'flex justify-center items-center'>
