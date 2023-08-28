@@ -42,9 +42,6 @@ const SignIn = () => {
 
   return (
     <div className = 'h-screen'>
-      
-      
-        
       <div className="flex justify-center">
         <div className = "relative top-[200px]">
           <div className = 'flex justify-center items-center'>

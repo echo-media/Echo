@@ -8,7 +8,6 @@ const SignUp = () => {
   const [password, setPassword] = useState("")
   const [emptyFields, setEmptyFields] = useState([])
   const {signup, error, isLoading} = useSignup()
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +42,7 @@ const SignUp = () => {
 							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' className = {emptyFields.includes('password') ? 'error': ''} type ='password' placeholder='Enter your password'>
 							</input>
 							<div className = 'flex justify-center items-center'>
-								<button id = 'BtnConfirm' className = 'font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2'> 
+								<button disabled={isLoading} id = 'BtnConfirm' className = 'font-bold rounded-full bg-purple-400 hover:bg-purple-500 text-white w-32 h-12 my-2'> 
 									Sign Up
 								</button>  
 							</div>
