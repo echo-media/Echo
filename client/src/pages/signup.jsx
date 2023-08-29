@@ -14,7 +14,7 @@ const SignUp = () => {
 
     await signup(username, email, password);
     
-	}
+	};
 
   return (
     <div className = 'h-screen'> 

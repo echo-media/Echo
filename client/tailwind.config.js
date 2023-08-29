@@ -4,7 +4,16 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        "custombg": "#050208",
+        "custombgbtn1": "#723ec1",
+        "custombgbtn2": "#201037"
+      },
+      textColor: {
+        "customtxt": "#f7f3fb"
+      },
+    },
   },
   plugins: [],
 }

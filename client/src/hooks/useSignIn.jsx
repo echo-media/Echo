@@ -1,23 +1,24 @@
-import { useAuthContext } from "./useAuthContext"
-import { useState } from "react"
+import { useAuthContext } from "./useAuthContext";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
-export const useSignup = () => {
+export const useSignIn = () => {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
-    const { dispatch } = useAuthContext()
     const navigate = useNavigate()
-    
-    const signup = async (username, email, password) => {
+    const { dispatch } = useAuthContext()
+
+    const signin = async (email, password) => {
         setIsLoading(true)
-        setError(null)
+        setError(false)
 
-        const response = await fetch("http://localhost:4000/api/users/signup", {
+        
+
+        const response = await fetch("http://localhost:4000/api/users/login", {
             method: "POST",
-            body: JSON.stringify( { username, email, password }),
+            body: JSON.stringify({ email, password }),
             headers: {
-                "Content-Type": "application/json",
-
+                "Content-Type": "application/json", 
             },
         });
 
@@ -31,7 +32,7 @@ export const useSignup = () => {
 
         if (response.ok) {
             localStorage.setItem("user", JSON.stringify(json))
-            
+
             dispatch( {type: "LOGIN", payload: json} )
 
             setIsLoading(false)
@@ -39,6 +40,7 @@ export const useSignup = () => {
         }
 
     }
-    return { signup, isLoading, error }
+    
+    return { signin, isLoading, error}
 
 }

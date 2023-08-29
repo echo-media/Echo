@@ -1,43 +1,17 @@
-import React, { useState } from 'react';
-import logo from '../logo.svg'
-import { Link, useNavigate } from "react-router-dom"
+import { useState } from 'react';
 import '../index.css';
-import NavBar from "../components/navbar.jsx"
-
-
-
+import { useSignIn } from "../hooks/useSignIn.jsx"
 
 const SignIn = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
-  const navigate = useNavigate()
+  const {signin, error, isLoading} = useSignIn()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const user = { email, password };
-
-    try {
-        const response = await fetch("http://localhost:4000/api/users/login", {
-            method: "POST",
-            body: JSON.stringify(user),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        if (response.ok) {
-            navigate("/mainfeed")
-        } else {
-            const json = await response.json();
-            setEmptyFields(json.emptyFields || []);
-            setError(json.error);
-        }
-    } catch (error) {
-        setError("An error occurred while processing your request.");
-    }
+    await signin(email, password)
 };
 
   return (
@@ -61,7 +35,7 @@ const SignIn = () => {
               <input onChange={(e) => setPassword(e.target.value)} id = 'password' className = {emptyFields.includes('password') ? 'error': ''} type ='password' placeholder='Enter your password'>
               </input>
               <div class = 'flex justify-center items-center'>
-                <button id = 'BtnConfirm' className = ' font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2'> 
+                <button disabled = {isLoading} id = 'BtnConfirm' className = ' font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2'> 
                   Sign In
                 </button>  
               </div>
