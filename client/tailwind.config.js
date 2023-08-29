@@ -6,9 +6,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        "custombg": "#050208",
-        "custombgbtn1": "#723ec1",
-        "custombgbtn2": "#201037"
+        "background": "#050208",
+        "primary": "#723ec1",
+        "secondary": "#201037",
+        "accent": "#7e4ec6",
       },
       textColor: {
         "customtxt": "#f7f3fb"
