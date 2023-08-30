@@ -1,9 +1,9 @@
 import { React } from "react"
 import ProtectPage from "../components/pageprotection";
 
-const Profile = () => {
+const Settings = () => {
     ProtectPage()
-
+    
     return (
         <div class = "h-screen">
 
@@ -12,5 +12,4 @@ const Profile = () => {
     
 };
 
-export default Profile;
-
+export default Settings;

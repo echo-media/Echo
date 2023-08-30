@@ -22,16 +22,16 @@ const DropDown = () => {
     return (
 
         <div>
-            <button onClick = {ToggleDrop} className="bg-custombgbtn1 navbarbtn" > 
-                {user.user.username}
-            </button>
+            {user && <button onClick = {ToggleDrop} className="bg-primary navbarbtn" > 
+                {user.user ? user.user.username: "Guest"}
+            </button>}
 
             {isOpen && <div className = "absolute z-50 mt-2 py-2 w-32 bg-custombgbtn2 border border-gray-300 rounded shadow-lg">
                 <Link to = "/profile" className="block px-4 py-2 text-customtxt hover:bg-custombgbtn1">
                     Profile
                 </Link>
 
-                <Link to = "/profile" className="block px-4 py-2 text-customtxt hover:bg-custombgbtn1">
+                <Link to = "/settings" className="block px-4 py-2 text-customtxt hover:bg-custombgbtn1">
                     Settings
                 </Link>
 

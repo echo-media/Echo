@@ -12,7 +12,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(username, email, password);
+    await signup(username, email, password)
     
 	};
 
@@ -42,9 +42,10 @@ const SignUp = () => {
 							<input onChange = {(e) => setPassword(e.target.value)} value = {password} id = 'password' className = {emptyFields.includes('password') ? 'error': ''} type ='password' placeholder='Enter your password'>
 							</input>
 							<div className = 'flex justify-center items-center'>
-								<button disabled={isLoading} id = 'BtnConfirm' className = 'font-bold rounded-full bg-custombgbtn2 hover:bg-indigo-800 text-white w-32 h-12 my-2'> 
+								<button disabled={isLoading} id = 'BtnConfirm' className = 'font-bold rounded-full bg-secondary hover:bg-indigo-800 text-white w-32 h-12 my-2'> 
 									Sign Up
-								</button>  
+								</button> 
+
 							</div>
 							{error && <div className="flex justify-center items-center font-semibold border-solid border-2 border-red-600 rounded-md px-1 mt-2 bg-red-100 text-red-500">{error}</div>}
 						</div>

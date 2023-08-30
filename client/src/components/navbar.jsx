@@ -31,12 +31,12 @@ const NavBar = () => {
 
             
               <Link to = "/newpost"> 
-                <button className = "bg-custombgbtn2 hover:bg-purple-500 text-white navbarbtn"> 
+                <button className = "bg-secondary hover:bg-purple-500 text-white navbarbtn"> 
                   Create Post
                 </button>
               </Link>
               <Link to = "/news"> 
-                <button className = "bg-custombgbtn2 hover:bg-purple-500 text-white navbarbtn"> 
+                <button className = "bg-secondary hover:bg-purple-500 text-white navbarbtn"> 
                   Latest News
                 </button>
               </Link>
@@ -48,12 +48,12 @@ const NavBar = () => {
         </div>}
         {!user && <div className = "float-right"> 
           <Link to = "/signin"> 
-            <button className = "bg-custombgbtn1 hover:bg-purple-500 text-white navbarbtn"> 
+            <button className = "bg-primary hover:bg-purple-500 text-white navbarbtn"> 
               Sign In
             </button>
           </Link>
           <Link to = "/signup"> 
-            <button className = "bg-custombgbtn2 hover:bg-indigo-800 text-white navbarbtn"> 
+            <button className = "bg-secondary hover:bg-indigo-800 text-white navbarbtn"> 
               Sign Up
             </button>
           </Link>

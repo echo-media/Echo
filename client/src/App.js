@@ -10,6 +10,7 @@ import NavBar from "./components/navbar.jsx"
 import NewPost from "./pages/newpost.jsx"
 import Profile from "./pages/profile.jsx"
 import News from "./pages/news.jsx"
+import Settings from './pages/settings';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path = "/newpost" element = {<NewPost />} />
             <Route path = "/profile" element = {<Profile />} />
             <Route path = "/news" element = {<News />} />
+            <Route path = "/settings" element = {<Settings />} />
           </Routes> 
         </div>
       </BrowserRouter>
