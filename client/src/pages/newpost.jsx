@@ -1,16 +1,19 @@
 import { React } from "react"
+import "../index.css"
 import ProtectPage from "../components/pageprotection";
 
-const Profile = () => {
+const NewPost = () => {
+
     ProtectPage()
-    
+
     return (
-        <div class = "h-screen">
+
+        <div className="h-screen">
 
         </div>
+
     );
-    
+
 };
 
-export default Profile
-
+export default NewPost

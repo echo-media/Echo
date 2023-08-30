@@ -5,17 +5,11 @@ import '../index.css';
 import { useLogout } from "../hooks/useLogout"
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from '../hooks/useAuthContext';
+import DropDown from "./dropdown.jsx"
 
 const NavBar = () => { 
-  const navigate = useNavigate()
-  const { logout } = useLogout()
   const { user } = useAuthContext()
-
-  const handleLogout = () => {
-    logout()
-    navigate("/")
-  }
-
+    
   return (
     <header> 
       <div className="w-full pt-1">
@@ -34,8 +28,22 @@ const NavBar = () => {
           </Link>}
 
         {user && <div className = "float-right">
-          
-            <button onClick={handleLogout} className = "bg-red-500 hover:bg-red-600 text-white navbarbtn float-left">Logout</button>
+
+            
+              <Link to = "/newpost"> 
+                <button className = "bg-custombgbtn2 hover:bg-purple-500 text-white navbarbtn"> 
+                  Create Post
+                </button>
+              </Link>
+              <Link to = "/news"> 
+                <button className = "bg-custombgbtn2 hover:bg-purple-500 text-white navbarbtn"> 
+                  Latest News
+                </button>
+              </Link>
+            
+            <div className='flex float-right mr-4'> 
+              <DropDown />
+            </div>
 
         </div>}
         {!user && <div className = "float-right"> 

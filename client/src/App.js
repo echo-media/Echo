@@ -7,6 +7,9 @@ import SignUp from './pages/signup';
 import NoPage from './pages/nopage';
 import MainFeed from './pages/mainfeed';
 import NavBar from "./components/navbar.jsx"
+import NewPost from "./pages/newpost.jsx"
+import Profile from "./pages/profile.jsx"
+import News from "./pages/news.jsx"
 
 function App() {
   return (
@@ -20,7 +23,10 @@ function App() {
             <Route path = '/signup' element = {<SignUp />} />
             <Route path = '/nopage' element = {<NoPage /> } />
             <Route path = '/mainfeed' element = {<MainFeed />} />
-          </Routes>
+            <Route path = "/newpost" element = {<NewPost />} />
+            <Route path = "/profile" element = {<Profile />} />
+            <Route path = "/news" element = {<News />} />
+          </Routes> 
         </div>
       </BrowserRouter>
     </div>

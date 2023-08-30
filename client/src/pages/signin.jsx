@@ -34,8 +34,8 @@ const SignIn = () => {
               </label>
               <input onChange={(e) => setPassword(e.target.value)} id = 'password' className = {emptyFields.includes('password') ? 'error': ''} type ='password' placeholder='Enter your password'>
               </input>
-              <div class = 'flex justify-center items-center'>
-                <button disabled = {isLoading} id = 'BtnConfirm' className = ' font-bold rounded-full bg-indigo-800 hover:bg-indigo-900 text-white w-32 h-12 my-2'> 
+              <div className = 'flex justify-center items-center'>
+                <button disabled = {isLoading} id = 'BtnConfirm' className = ' font-bold rounded-full bg-custombgbtn1 hover:bg-purple-500 text-white w-32 h-12 my-2'> 
                   Sign In
                 </button>  
               </div>

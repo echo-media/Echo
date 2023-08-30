@@ -1,16 +1,15 @@
 import { React } from "react"
 import ProtectPage from "../components/pageprotection";
 
-const Profile = () => {
-    ProtectPage()
-    
+const News = () => {
+
+ProtectPage()
+
     return (
-        <div class = "h-screen">
+        <div className = "h-screen">
 
         </div>
     );
-    
-};
+}
 
-export default Profile
-
+export default News;
