@@ -5,8 +5,8 @@ import ProtectPage from '../components/pageprotection';
 
 const SignUp = () => {
 	// redirect if already logged in
-	ProtectPage()
-	
+	ProtectPage("/signup")
+
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
