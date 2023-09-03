@@ -3,13 +3,12 @@ import ProtectPage from "../components/pageprotection";
 
 const News = () => {
 
-ProtectPage()
+  ProtectPage("/signin", "/news")
+  return (
+    <div className = "h-screen">
 
-    return (
-        <div className = "h-screen">
-
-        </div>
-    );
+    </div>
+  );
 }
 
 export default News;

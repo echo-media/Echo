@@ -4,7 +4,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from '../context/authContext';
 
-const ProtectPage = (redirectTo) => { 
+const ProtectPage = (notLoggedIn, loggedIn) => { 
 
   const { user } = useAuthContext();
   const navigate = useNavigate();
@@ -13,10 +13,10 @@ const ProtectPage = (redirectTo) => {
     console.log('User:', user);
     if (!user) {
       console.log('User is null. Redirecting to login..');
-      navigate(redirectTo);
+      navigate(notLoggedIn);
     } else {
       console.log("User Logged In")
-      navigate("/mainfeed")
+      navigate(loggedIn)
     }
   }, [user, navigate]);
 }

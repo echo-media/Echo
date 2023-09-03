@@ -7,7 +7,7 @@ import ProtectPage from '../components/pageprotection';
 
 const MainFeed = () => { 
 
-  ProtectPage("/signin")
+  ProtectPage("/signin", "/mainfeed")
   
   return (
     <div className = 'h-screen'>

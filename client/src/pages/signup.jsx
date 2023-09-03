@@ -5,7 +5,7 @@ import ProtectPage from '../components/pageprotection';
 
 const SignUp = () => {
 	// redirect if already logged in
-	ProtectPage("/signup")
+	ProtectPage("/signup", "/mainfeed")
 
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")

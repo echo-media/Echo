@@ -2,7 +2,7 @@ import { React } from "react"
 import ProtectPage from "../components/pageprotection";
 
 const Settings = () => {
-    ProtectPage()
+    ProtectPage("/signin", "/settings")
     
     return (
         <div class = "h-screen">

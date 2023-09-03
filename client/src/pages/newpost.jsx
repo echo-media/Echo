@@ -4,12 +4,12 @@ import ProtectPage from "../components/pageprotection";
 
 const NewPost = () => {
 
-    ProtectPage()
+    ProtectPage("/signin", "/newpost")
 
     return (
 
         <div className="h-screen">
-
+            
         </div>
 
     );
