@@ -12,10 +12,11 @@ const ProtectPage = () => {
   useEffect(() => {
     console.log('User:', user);
     if (!user) {
-      console.log('User is null. Redirecting to login.');
+      console.log('User is null. Redirecting to login..');
       navigate("/signin");
     } else {
       console.log("User Logged In")
+      navigate("/mainfeed")
     }
   }, [user, navigate]);
 }

@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import '../index.css';
 import { useSignIn } from "../hooks/useSignIn.jsx"
+import ProtectPage from '../components/pageprotection';
 
 const SignIn = () => {
+  // redirect if already logged in
+  ProtectPage()
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [emptyFields, setEmptyFields] = useState([])
@@ -13,7 +17,7 @@ const SignIn = () => {
 
     await signin(email, password)
 };
-
+  
   return (
     <div className = 'h-screen'>
       <div className="flex justify-center">

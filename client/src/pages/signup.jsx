@@ -1,8 +1,12 @@
 import '../index.css'
 import { useState } from "react"
 import { useSignup } from "../hooks/useSignUp.jsx"
+import ProtectPage from '../components/pageprotection';
 
 const SignUp = () => {
+	// redirect if already logged in
+	ProtectPage()
+	
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -10,6 +14,7 @@ const SignUp = () => {
   const {signup, error, isLoading} = useSignup()
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
 
     await signup(username, email, password)
