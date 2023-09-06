@@ -38,6 +38,10 @@ input {
   @apply w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950;
 }
 
+img {
+  @apply select-none;
+}
+
 .navbarbtn {
   @apply font-bold rounded-full w-20 h-8 mx-1 mt-1 sm:w-24 md:text-base md:h-10 md:w-28 md:mx-2 lg:text-lg lg:w-32 lg:h-12 lg:mt-2;
 }
@@ -45,3 +49,4 @@ input {
 .main-paragraph {
   @apply text-sm sm:text-base md:text-xl md:px-10 self-center
 }
+

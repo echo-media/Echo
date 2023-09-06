@@ -12,7 +12,7 @@ const NavBar = () => {
     
   return (
     <header> 
-      <div className="w-full pt-1">
+      <div className="w-full pt-1 select-none">
           {!user && <Link to = "/"> 
             <img src={logo} alt="LOGO" className="float-left w-12 md:w-14 lg:w-20 pt-1"></img>
             <h1 className = "float-left select-none font-bold text-3xl md:text-4xl md:pt-0.5 lg:text-5xl lg:pt-2"> 
@@ -22,7 +22,7 @@ const NavBar = () => {
 
           {user && <Link to = "/mainfeed">
             <img src={logo} alt="LOGO" className="float-left w-12 md:w-14 lg:w-20 pt-1"></img> 
-            <h1 className = "float-left select-none font-bold text-3xl md:text-4xl md:pt-0.5 lg:text-5xl lg:pt-2"> 
+            <h1 className = "float-left font-bold text-3xl md:text-4xl md:pt-0.5 lg:text-5xl lg:pt-2"> 
               ECHO 
             </h1> 
           </Link>}

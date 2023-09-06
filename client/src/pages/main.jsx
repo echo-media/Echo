@@ -11,7 +11,7 @@ function Main() {
 
       <div className="flex-wrap flex flex-col items-center justify-center w-full px-5 pt-6 md:pt-14 lg:flex-nowrap">
         <div>
-          <p className="text-2xl sm:text-3xl md:text-4xl md:pl-10 lg:text-5xl lg:pl-40">
+          <p className="select-none text-2xl sm:text-3xl md:text-4xl md:pl-10 lg:text-5xl lg:pl-40">
             <span className="font-black text-transparent bg-clip-text bg-gradient-to-br from-[#723ec1] to-violet-300">Dive </span>Into The Depths
             <br></br>
             Of <span className="font-black text-transparent bg-clip-text bg-gradient-to-br from-violet-300 to-[#723ec1]"> Modern Social Media</span>
