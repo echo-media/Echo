@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const postSchema = new Schema({
   user: {
-    type: Schema.Types.ObjectId,
+    type: String,
     ref: "User",
     required: true,
   },
@@ -31,7 +31,7 @@ const postSchema = new Schema({
   isEcho: {
     type: Boolean,
     required: true,
-  },
+  }, 
   echoedPost: {
     type: Schema.Types.ObjectId,
     ref: "Post",
