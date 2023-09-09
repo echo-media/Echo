@@ -2,10 +2,21 @@ import logo from '../logo.svg';
 import '../index.css';
 import { Link } from "react-router-dom";
 import NavBar from "../components/navbar.jsx"
+import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 
 
 function Main() {
+  
+  const navigate = useNavigate()
+  const { user } = useAuthContext()
+
+  if (user) {
+    navigate("/mainfeed")
+
+  }
+
   return (
     <div className="h-full">
 

@@ -1,9 +1,11 @@
 import express from "express"
-import createPost from "../controllers/postController.mjs"
+import {createPost, getAllPosts} from "../controllers/postController.mjs"
 
 const router = express.Router()
 
-router.post("/", createPost)
+router.get("/getall", getAllPosts)
+
+router.post("/newpost", createPost)
 
 router.get("/:id", (req, res) => {
   res.json({message: "GET a specific post"})

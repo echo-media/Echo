@@ -12,12 +12,12 @@ const NewPost = () => {
 
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
-    const { newpost } = useCreatePost()
+    const  newpost  = useCreatePost()
 
     const handleSubmit = async (e) => {
       e.preventDefault()
 
-      await newpost(user.user.username, title, content)
+      await newpost(user.user.username, title, content, false)
     }
 
     return (
@@ -28,19 +28,19 @@ const NewPost = () => {
                 <div className = "flex justify-center items-center mb-4"> 
                   <h1> Create a new post!</h1>
                 </div>
-                <form>
+                <form onSubmit = {handleSubmit}>
                   <div> 
-                    <input className = "w-64 h-8 mb-4" id = "post-title" placeholder = "Enter the title for your post"> 
+                    <input onChange = {(e) => setTitle(e.target.value)} className = "w-64 h-8 mb-4" id = "post-title" placeholder = "Enter the title for your post"> 
                     </input>
                   </div>
 
                   <div>
-                    <input className = "w-64 h-32" id = "post-content" placeholder = "Enter the content of your new post">
+                    <input onChange = {(e) => setContent(e.target.value)} className = "w-64 h-32" id = "post-content" placeholder = "Enter the content of your new post">
                     </input>
                   </div>
 
                   <div className = "flex justify-center items-center mt-4">
-                    <button className = "bg-white w-32 h-12 rounded-full" id = "send-post">
+                    <button className = "navbarbtn" id = "send-post">
                       Send Post
                     </button>
                   </div>
