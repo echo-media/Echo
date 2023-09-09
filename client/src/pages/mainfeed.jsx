@@ -11,7 +11,7 @@ const MainFeed = () => {
   
   return (
     <div className = 'h-screen '>
-      <div className = "flex justify-center item-center h-full relative top-[200px] bg-white">
+      <div className = "flex justify-center item-center h-full relative top-[200px] bg-black">
         POSTS GO HERE 
       </div>
     

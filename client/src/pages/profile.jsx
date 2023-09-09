@@ -6,11 +6,11 @@ const Profile = () => {
 
     return (
       <div className = 'h-screen '>
-        <div className = "bg-white flex justify-center items-center relative top-[200px]"> 
+        <div className = "bg-black flex justify-center items-center relative top-[200px]"> 
           USER STATISTICS GO HERE EG... FOLLOWERS, FOLLOWING, POSTCOUNT
         </div>
 
-        <div className = "flex justify-center item-center h-full relative top-[300px] overflow-y-scroll bg-white">
+        <div className = "flex justify-center item-center h-full relative top-[300px] overflow-y-scroll bg-black">
           USER SPECIFIC POSTS GO HERE 
         </div>
     

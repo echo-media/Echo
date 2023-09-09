@@ -52,6 +52,10 @@ img {
 
 ::-webkit-scrollbar {
   width: 12px;
-  background: #1D0539;
+  background: #050208;
 }
 
+::-webkit-scrollbar-thumb {
+  background: #bcb4c7;
+  border-radius: 10px;
+}

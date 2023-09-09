@@ -38,5 +38,13 @@ const postSchema = new Schema({
   },
 }, {timestamps: true})
 
+UserSchema.methods.getCommentsNumber = function() {
+  const { comments } = this.comments
+
+  const numComments = comments.lengthr
+  
+  return numComments
+}
+
 const Post = mongoose.model("Post", postSchema)
 export default Post;
