@@ -38,7 +38,7 @@ const postSchema = new Schema({
   },
 }, {timestamps: true})
 
-UserSchema.methods.getCommentsNumber = function() {
+postSchema.methods.getCommentsNumber = function() {
   const { comments } = this.comments
 
   const numComments = comments.lengthr
