@@ -1,6 +1,9 @@
+import requireAuth from "../middleware/requireAuth.mjs"
 import express from "express"
 
 const router = express.Router()
+
+router.use(requireAuth)
 
 router.post("/:id", (req, res) => {
   res.json({message: "POST a new comment"})
