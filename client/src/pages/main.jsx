@@ -1,7 +1,5 @@
-import logo from '../logo.svg';
+import logo from '../assets/logo.svg';
 import '../index.css';
-import { Link } from "react-router-dom";
-import NavBar from "../components/navbar.jsx"
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 
@@ -31,15 +29,15 @@ function Main() {
             <p className="main-paragraph">
             Connect and express yourself on our vibrant social media platform! Share your thoughts, photos, and videos with friends and followers in real-time. 
             </p>
-            <img src={logo} alt="image of the app" className="md:w-full"></img>
+            <image src={logo} alt="image of the app" className="md:w-full"></image>
             <p className="main-paragraph">
             Stay updated with the latest trends, news, and conversations on topics you love. 
             </p>
-            <img src={logo} alt="image of the app" className="md:w-full"></img>
+            <image src={logo} alt="image of the app" className="md:w-full"></image>
             <p className="main-paragraph">
             Engage in lively discussions, discover new interests, and build meaningful connections in a safe and inclusive online space. 
             </p>
-            <img src={logo} alt="image of the app" className="md:w-full"></img>
+            <image src={logo} alt="image of the app" className="md:w-full"></image>
 
           </div>
         </div>

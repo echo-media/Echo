@@ -1,20 +1,23 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../index.css';
-import { useAuthContext } from '../hooks/useAuthContext';
-import { useNavigate } from "react-router-dom"
-import { AuthContext } from '../context/authContext';
+//import { useAuthContext } from '../hooks/useAuthContext';
+//import { useNavigate } from "react-router-dom"
+//import { AuthContext } from '../context/authContext';
 import ProtectPage from "../components/pageprotection";
-
+import Post from "../components/post"
 const MainFeed = () => { 
   const [posts, setPosts] = useState(null)
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("http://localhost:4000/api/posts/getall")
+      const response = await fetch("/api/posts/getall")
       const json = await response.json()
 
       if (response.ok) {
+        console.log(json)
         setPosts(json)
+      } else {
+        console.log(json)
       }
     }
 
@@ -26,10 +29,10 @@ const MainFeed = () => {
   return (
     <div className='h-full'>
       
-      <div className = 'bg-red-500 flex-wrap flex flex-col items-center justify-center w-full px-5 lg:flex-nowrap'>
-        <div className="post">
+      <div className = 'flex items-center justify-center px-5 w-full'>
+        <div className="posts w-[50%]">
           {posts && posts.map((post) => (
-            <h1 key={post._id}>{post.title}</h1>
+            <Post key={post._id} post={post} />
           ))}
         </div>
       </div>
