@@ -11,7 +11,6 @@ const NavBar = () => {
   const { user } = useAuthContext()
     
   return (
-    <header> 
       <div className="w-full pt-1 select-none">
           {!user && <Link to = "/"> 
             <img src={logo} alt="LOGO" className="float-left w-12 md:w-14 lg:w-20 pt-1"></img>
@@ -59,7 +58,6 @@ const NavBar = () => {
           </Link>
         </div>}
       </div>
-    </header>
 
   ); 
 };

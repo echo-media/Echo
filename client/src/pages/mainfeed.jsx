@@ -10,7 +10,7 @@ const MainFeed = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("http://localhost:4000/api/posts")
+      const response = await fetch("http://localhost:4000/api/posts/getall")
       const json = await response.json()
 
       if (response.ok) {
@@ -24,11 +24,14 @@ const MainFeed = () => {
   ProtectPage("/signin", "/mainfeed")
   
   return (
-    <div className = 'h-screen'>
-      <div className="post">
-        {posts && posts.map((post) => (
-          <p key={post._id}>{post.title}</p>
-        ))}
+    <div className='h-full'>
+      
+      <div className = 'bg-red-500 flex-wrap flex flex-col items-center justify-center w-full px-5 lg:flex-nowrap'>
+        <div className="post">
+          {posts && posts.map((post) => (
+            <h1 key={post._id}>{post.title}</h1>
+          ))}
+        </div>
       </div>
     </div>
   ); 
