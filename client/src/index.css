@@ -50,3 +50,12 @@ img {
   @apply text-sm sm:text-base md:text-xl md:px-10 self-center
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+  background: #050208;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bcb4c7;
+  border-radius: 10px;
+}
