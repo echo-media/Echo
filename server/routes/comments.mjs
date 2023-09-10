@@ -4,15 +4,9 @@ import {getAllComments, createComment} from "../controllers/commentController.mj
 
 const router = express.Router()
 
-<<<<<<< Updated upstream
 router.use(requireAuth)
 
-router.post("/:id", (req, res) => {
-  res.json({message: "POST a new comment"})
-})
-=======
 router.post("/newcomment", createComment)
->>>>>>> Stashed changes
 
 router.get("/getallcomments", getAllComments)
 
