@@ -1,17 +1,20 @@
 import requireAuth from "../middleware/requireAuth.mjs"
 import express from "express"
+import {getAllComments, createComment} from "../controllers/commentController.mjs"
 
 const router = express.Router()
 
+<<<<<<< Updated upstream
 router.use(requireAuth)
 
 router.post("/:id", (req, res) => {
   res.json({message: "POST a new comment"})
 })
+=======
+router.post("/newcomment", createComment)
+>>>>>>> Stashed changes
 
-router.get("/:id", (req, res) => {
-  res.json({message: "GET a specific comment"})
-})
+router.get("/getallcomments", getAllComments)
 
 router.patch("/:id", (req, res) => {
   res.json({message: "UPDATE a comment"})

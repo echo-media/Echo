@@ -8,7 +8,7 @@ const getAllPosts = async (req, res) => {
 
 }
 
-const getUsersPosts = async (res, req) => {
+const getUsersPosts = async (req, res) => {
 
 }
 

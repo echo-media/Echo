@@ -18,10 +18,6 @@ const commentSchema = new Schema({
     type: String,
     required: true,
   },
-  edited: {
-    type: Boolean,
-    default: false,
-  },
   likes: {
     type: Number,
     default: 0,
