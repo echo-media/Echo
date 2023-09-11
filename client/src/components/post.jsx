@@ -8,13 +8,7 @@ const Post = ({ post }) => {
     const { user } = useAuthContext()
 
     // determine whether the user has liked the post or not and change its style accordingly
-    var _isliked
-    try {
-        _isliked = user.likedPosts.includes(post._id)
-    }   catch (e) {
-        _isliked = false
-    }
-    const [isLiked, setIsLiked] = useState(_isliked)
+    const [isLiked, setIsLiked] = useState(user.user.likedPosts.includes(post._id))
 
     const createdAt = new Date(post.createdAt)
     dayjs.extend(relativeTime)
