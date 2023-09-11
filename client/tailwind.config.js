@@ -14,6 +14,11 @@ module.exports = {
       textColor: {
         "customtxt": "#f7f3fb"
       },
+      backgroundImage: {
+        "liked": "url('/src/assets/liked.svg')",
+        "unliked": "url('/src/assets/unliked.svg')",
+        "unlikedHover": "url('/src/assets/unlikedHover.svg')"
+      }
     },
   },
   plugins: [],

@@ -16,7 +16,7 @@ const SignIn = () => {
     e.preventDefault();
 
     await signin(email, password)
-};
+  };
   
   return (
     <div className = 'h-screen'>

@@ -70,3 +70,16 @@ img {
   overflow-y: scroll;
   white-space: pre-wrap;
 }
+
+
+.likebtn {
+  @apply bg-contain w-6 h-6 mr-2 bg-no-repeat 
+}
+
+.unlikedbtn {
+  @apply bg-unliked hover:bg-unlikedHover hover:text-[#f9595f]
+}
+
+.likedbtn {
+  @apply bg-liked text-[#f9595f]
+}

@@ -75,7 +75,7 @@ const createPost = async (req, res) => {
 
 //define like post
 
-const likePost = async (req, res ) => {
+const likePost = async (req, res) => {
   try {
     const { postid } = req.body 
 
