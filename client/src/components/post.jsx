@@ -6,17 +6,6 @@ const Post = ({ post }) => {
     const { user } = useAuthContext()
 
     // determine whether the user has liked the post or not and change its style accordingly
-    /*let isLiked = false
-    try {
-        isLiked = user.likedPosts.includes(post._id)
-    } catch (e) {
-        //console.log(e)
-        console.log("hi")
-    }
-
-    const changeLiked = () => {
-        isLiked = !isLiked
-    }*/
     var _isliked
     try {
         _isliked = user.likedPosts.includes(post._id)
@@ -24,27 +13,28 @@ const Post = ({ post }) => {
         _isliked = false
     }
     const [isLiked, setIsLiked] = useState(_isliked)
-    
-    useEffect( () => {
-        console.log(isLiked)
-    }, [isLiked])
+
+    const createdAt = new Date(post.createdAt)
+    const dateFormat = { year: 'numeric', month: 'long', day: 'numeric' }
 
     return (
-        <div className="post-details mb-5 bg-primary hover:bg-accent p-2 rounded-md"> 
-            <div>
-                <h1 className="inline">{post.title}</h1>
-                <h2 className="inline float-right">posted by {post.user}</h2>
+        <button className="post-details mb-5 bg-primary hover:bg-accent p-4 rounded-md text-customtxt block w-full text-left"> 
+            <div className="mb-2">
+                <h1 className="inline text-2xl"><strong>{post.title}</strong></h1>
+                <button className="inline float-right"><em><strong>{post.user}</strong></em></button>
             </div>
             <p>{post.content}</p>
             
             
-            <div className="select-none flex flex-row mt-2">
+            <div className="select-none mt-3">
                 <button onClick={() => setIsLiked(!isLiked)} className={isLiked ? "likebtn likedbtn": "likebtn unlikedbtn"}>
-                    <p className="pl-8">{post.likes + isLiked}</p>
+                    <p className="ml-8">{post.likes + isLiked}</p>
                 </button>
+                <p className="float-right">{createdAt.toLocaleDateString(undefined, dateFormat)}</p>
             </div>
+            
 
-        </div>
+        </button>
 
     )
 }

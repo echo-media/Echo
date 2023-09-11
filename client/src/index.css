@@ -73,7 +73,7 @@ img {
 
 
 .likebtn {
-  @apply bg-contain w-6 h-6 mr-2 bg-no-repeat 
+  @apply bg-contain w-6 mr-2 bg-no-repeat 
 }
 
 .unlikedbtn {
