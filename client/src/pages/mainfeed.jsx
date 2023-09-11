@@ -31,7 +31,7 @@ const MainFeed = () => {
       
       <div className = 'flex items-center justify-center px-5 w-full'>
         <div className="posts w-[50%]">
-          {posts && posts.map((post) => (
+          {posts && posts.slice().reverse().map((post) => (
             <Post key={post._id} post={post} />
           ))}
         </div>
