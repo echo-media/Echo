@@ -1,6 +1,8 @@
 import { React } from "react"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuthContext } from "../hooks/useAuthContext"
+import dayjs from "dayjs"
+import relativeTime from "dayjs/plugin/relativeTime"
 
 const Post = ({ post }) => {
     const { user } = useAuthContext()
@@ -15,8 +17,8 @@ const Post = ({ post }) => {
     const [isLiked, setIsLiked] = useState(_isliked)
 
     const createdAt = new Date(post.createdAt)
-    const dateFormat = { year: 'numeric', month: 'long', day: 'numeric' }
-
+    dayjs.extend(relativeTime)
+    
     return (
         <button className="post-details mb-5 bg-primary hover:bg-accent p-4 rounded-md text-customtxt block w-full text-left"> 
             <div className="mb-2">
@@ -30,7 +32,7 @@ const Post = ({ post }) => {
                 <button onClick={() => setIsLiked(!isLiked)} className={isLiked ? "likebtn likedbtn": "likebtn unlikedbtn"}>
                     <p className="ml-8">{post.likes + isLiked}</p>
                 </button>
-                <p className="float-right">{createdAt.toLocaleDateString(undefined, dateFormat)}</p>
+                <p className="float-right">{dayjs().to(createdAt)}</p>
             </div>
             
 
