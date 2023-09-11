@@ -1,24 +1,59 @@
-import { React } from "react"
+import React, { useState, useEffect } from "react";
 import ProtectPage from "../components/pageprotection";
+import { useAuthContext } from "../hooks/useAuthContext";
+import Post from "../components/post";
 
 const Profile = () => {
-    ProtectPage("/signin", "/profile")
+  ProtectPage("/signin", "/profile");
 
-    return (
-      <div className = 'h-screen '>
-        <div className = "bg-black flex justify-center items-center relative top-[200px]"> 
-          USER STATISTICS GO HERE EG... FOLLOWERS, FOLLOWING, POSTCOUNT
-        </div>
+  const { user } = useAuthContext();
+  const followerCount = user?.user?.followCount || 0; // Use optional chaining and provide a default value
+  const username = user?.user?.username || "";
+  const [posts, setPosts] = useState([]);
 
-        <div className = "flex justify-center item-center h-full relative top-[300px] overflow-y-scroll bg-black">
-          USER SPECIFIC POSTS GO HERE 
-        </div>
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(`http://localhost:4000/api/posts/userposts/${username}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          const json = await response.json();
+
+          setPosts(json.posts);
+          
+        } else {
+          console.error("Failed to fetch posts");
+        }
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+   
+    fetchPosts();
     
+  }, [username]);
+
+  return (
+    <div className="h-screen">
+      <div className="flex items-center justify-center px-5 w-full relative top-[150px]">
+        <h1>Follower Count: {followerCount}</h1>
+      </div>
+
+      <div className="flex items-center justify-center px-5 w-full">
+        <div className="posts w-[50%] relative top-[200px]">
+          {posts.map((post) => (
+            <Post key={post._id} post={post} />
+          ))}
+        </div>
+      </div>
     </div>
-        
-    );
-    
+  );
 };
 
 export default Profile;
-

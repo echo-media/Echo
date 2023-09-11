@@ -8,7 +8,7 @@ const Post = ({ post }) => {
         <div className="post-details mb-5 bg-primary hover:bg-secondary p-2 rounded-md"> 
             <div>
                 <h1 className="inline">{post.title}</h1>
-                <h2 className="inline float-right">{post.user}</h2>
+                <h2 className="inline float-right">posted by {post.user}</h2>
             </div>
             <p>{post.content}</p>
             <br></br>

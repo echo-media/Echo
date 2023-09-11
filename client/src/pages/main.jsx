@@ -1,4 +1,4 @@
-import logo from '../assets/logo.svg';
+import logo from "../assets/logo.svg";
 import '../index.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
@@ -9,7 +9,7 @@ function Main() {
   
   const navigate = useNavigate()
   const { user } = useAuthContext()
-
+  
   if (user) {
     navigate("/mainfeed")
 
@@ -29,15 +29,15 @@ function Main() {
             <p className="main-paragraph">
             Connect and express yourself on our vibrant social media platform! Share your thoughts, photos, and videos with friends and followers in real-time. 
             </p>
-            <image src={logo} alt="image of the app" className="md:w-full"></image>
+            <img src={logo} alt="image of the app" className="md:w-full"></img>
             <p className="main-paragraph">
             Stay updated with the latest trends, news, and conversations on topics you love. 
             </p>
-            <image src={logo} alt="image of the app" className="md:w-full"></image>
+            <img src={logo} alt="image of the app" className="md:w-full"></img>
             <p className="main-paragraph">
             Engage in lively discussions, discover new interests, and build meaningful connections in a safe and inclusive online space. 
             </p>
-            <image src={logo} alt="image of the app" className="md:w-full"></image>
+            <img src={logo} alt="image of the app" className="md:w-full"></img>
 
           </div>
         </div>

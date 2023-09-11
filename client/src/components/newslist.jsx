@@ -12,7 +12,7 @@ const NewsList = () => {
       .then((response) => response.json())
       .then((data) => {
 
-        const topArticles = data.results.slice(1, 50)
+        const topArticles = data.results.slice(2, 50)
         setArticles(topArticles)
       }) 
       .catch((error) => console.log(error)) 

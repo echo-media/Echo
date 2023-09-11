@@ -9,8 +9,31 @@ const getAllPosts = async (req, res) => {
 }
 
 const getUsersPosts = async (req, res) => {
+  try {
+    const username = req.params.user; // Use req.query to get the username from the URL query parameters
 
-}
+    
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: 'User not found',
+      });
+    }
+
+    
+    const posts = await Post.find({ user: username });
+
+    res.status(200).json({
+      success: true,
+      user: user.username,
+      posts: posts,
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
 
 const createPost = async (req, res) => {
     const { user, title, content, isEcho } = req.body
@@ -50,5 +73,68 @@ const createPost = async (req, res) => {
     }
 }
 
+//define like post
 
-export {getAllPosts, createPost};
+const likePost = async (req, res ) => {
+  try {
+    const { postid } = req.body 
+
+    const post = Post.findOne({_id: postid})
+
+    if (!post) {
+      res.status(400).json({
+        success: false,
+        error: "post not found",
+      })
+    }
+
+    post.likes += 1
+
+    await post.save()
+
+    res.status(200).json({
+      sucess: true,
+      user: post.user,
+      likes: post.likes
+    })
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: error.message
+    })
+  }
+}
+
+//define unlike post 
+const unLikePost = async (req, res ) => {
+  try {
+    const { postid } = req.body 
+
+    const post = Post.findOne({_id: postid})
+
+    if (!post) {
+      res.status(400).json({
+        success: false,
+        error: "post not found",
+      })
+    }
+
+    post.likes -= 1
+
+    await post.save()
+
+    res.status(200).json({
+      sucess: true,
+      user: post.user,
+      likes: post.likes
+    })
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: error.message
+    })
+  }
+}
+
+
+export {getAllPosts, createPost, getUsersPosts, likePost, unLikePost};

@@ -1,5 +1,5 @@
 import express from "express"
-import {createPost, getAllPosts} from "../controllers/postController.mjs"
+import {createPost, getAllPosts, getUsersPosts, likePost, unLikePost} from "../controllers/postController.mjs"
 
 const router = express.Router()
 
@@ -7,16 +7,10 @@ router.get("/getall", getAllPosts)
 
 router.post("/newpost", createPost)
 
-router.get("/:id", (req, res) => {
-  res.json({message: "GET a specific post"})
-})
+router.get("/userposts/:user", getUsersPosts)
 
-router.patch("/:id", (req, res) => {
-  res.json({message: "UPDATE a post"})
-})
+router.post("/likepost", likePost)
 
-router.delete("/:id", (req, res) => {
-  res.json({message: "DELETE a post"})
-})
+router.post("/unlikepost", unLikePost)
 
 export default router

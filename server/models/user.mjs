@@ -52,10 +52,17 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Comment",
     },
-  }]
+  }],
+  followCount: {
+    type: Number,
+    default: 0,
+    min: 0,
+
+
+  }
 }, {timestamps: true})
 
 
 
 const User = mongoose.model("User", userSchema)
-export default User;
+export default User;  

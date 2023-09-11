@@ -30,6 +30,5 @@ const createComment = async (req, res) => {
     }
 
 }
-
 export {getAllComments, createComment};
 

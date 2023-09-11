@@ -58,9 +58,9 @@ const createUser = async (req, res) => {
   else if (!validator.isEmail(email)) {
     res.status(400).json({error: "Invalid Email!"})
   }
-  else if (!validator.isStrongPassword(password)) {
+  /*else if (!validator.isStrongPassword(password)) {
     res.status(400).json({error: "Weak password! Try adding special characters and numbers."})
-  }
+  } */
   else {
 
     try {
@@ -149,4 +149,72 @@ const loginUser = async (req, res) => {
   }
 };
 
-export {getUser, getUsers, createUser, deleteUser, updateUser, loginUser};
+//define new follower 
+
+const newFollower = async (req, res) => {
+  const { id } = req.body
+
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: "Invalid user, cannot update follow count"
+      })
+    }
+
+    user.followCount += 1;
+
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      user: user.username,
+      followCount: user.followCount
+    })
+
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      error: error.message
+    })
+  }
+}
+
+//define unfollow 
+
+const unFollow = async (req, res) => {
+  const { id } = req.body
+
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: "Invalid user, cannot update follow count"
+      })
+    }
+
+    user.followCount -= 1;
+
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      user: user.username,
+      followCount: user.followCount
+    })
+
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      error: error.message
+    })
+  }
+}
+
+
+
+export {getUser, getUsers, createUser, deleteUser, updateUser, loginUser, newFollower, unFollow};
