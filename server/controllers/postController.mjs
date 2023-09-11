@@ -136,5 +136,27 @@ const unLikePost = async (req, res ) => {
   }
 }
 
+//define delete post 
 
-export {getAllPosts, createPost, getUsersPosts, likePost, unLikePost};
+const deletePost = async (req, res) => {
+  try {
+    const { postid } = req.body
+
+    const post = await Post.findOneAndDelete({_id: postid})
+
+    res.status(200).json({
+      sucess:true,
+      deletedpost: post,
+    })
+
+  } catch (error) {
+    res.status(400).json({
+      sucess: false,
+
+    })
+
+  }
+}
+
+
+export {getAllPosts, createPost, getUsersPosts, likePost, unLikePost, deletePost};
