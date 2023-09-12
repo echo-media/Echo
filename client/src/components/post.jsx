@@ -6,17 +6,12 @@ import relativeTime from "dayjs/plugin/relativeTime"
 import { useNavigate } from "react-router-dom";
 
 const Post = ({ post }) => {
+
     const { user } = useAuthContext()
     const navigate = useNavigate()
 
-    // determine whether the user has liked the post or not and change its style accordingly
-    var _isliked;
-    try {
-        let _isLiked = post.likes.includes(user.user._id)
-    } catch {
-        let _isliked = false
-    }
-    const [isLiked, setIsLiked] = useState(_isliked)
+    // determine whether the user has liked the post or not and change its style accordinglyf
+    const [isLiked, setIsLiked] = useState(user ? post.likes.includes(user.user.username) : false)
 
     const createdAt = new Date(post.createdAt)
     dayjs.extend(relativeTime)
