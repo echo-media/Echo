@@ -23,7 +23,7 @@ const DropDown = () => {
 
         <div>
             {user && <button onClick = {ToggleDrop} className="bg-primary navbarbtn" > 
-                {user.user ? user.user.username: "Guest"}
+                {user.user.username}
             </button>}
 
             {isOpen && <div className = "absolute z-50 mt-2 py-2 w-32 bg-custombgbtn2 border border-gray-300 rounded shadow-lg">

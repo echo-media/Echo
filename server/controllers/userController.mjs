@@ -64,12 +64,12 @@ const createUser = async (req, res) => {
   else {
 
     try {
-      const newuser = await User.create({ username, email, password: hash })
+      const user = await User.create({ username, email, password: hash })
 
       //create token 
-      const token = createToken(newuser._id)
+      const token = createToken(user._id)
 
-      res.status(201).json({newuser, token})
+      res.status(201).json({user, token})
     } catch (error) {
       res.status(400).json({error: error.message})
     }

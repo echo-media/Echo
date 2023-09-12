@@ -10,7 +10,13 @@ const Post = ({ post }) => {
     const navigate = useNavigate()
 
     // determine whether the user has liked the post or not and change its style accordingly
-    const [isLiked, setIsLiked] = useState(user.user.likedPosts.includes(post._id))
+    var _isliked;
+    try {
+        let _isLiked = post.likes.includes(user.user._id)
+    } catch {
+        let _isliked = false
+    }
+    const [isLiked, setIsLiked] = useState(_isliked)
 
     const createdAt = new Date(post.createdAt)
     dayjs.extend(relativeTime)
