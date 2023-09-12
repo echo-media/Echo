@@ -1,14 +1,15 @@
 import { React } from "react"
 import { useState } from 'react';
 import { useAuthContext } from "../hooks/useAuthContext"
+import { useLike } from "../hooks/useLike"
 import dayjs from "dayjs"
 import relativeTime from "dayjs/plugin/relativeTime"
 import { useNavigate } from "react-router-dom";
 
 const Post = ({ post }) => {
-
     const { user } = useAuthContext()
     const navigate = useNavigate()
+    const { changeLiked, error } = useLike()
 
     // determine whether the user has liked the post or not and change its style accordinglyf
     const [isLiked, setIsLiked] = useState(user ? post.likes.includes(user.user.username) : false)
@@ -18,6 +19,12 @@ const Post = ({ post }) => {
 
     const toPostPage = () => {
         navigate(`/post/${post._id}`)
+    }
+
+    const handleLike = async (e) => {
+        
+        changeLiked(post._id, user.user._id)
+        
     }
     
     return (
@@ -30,7 +37,7 @@ const Post = ({ post }) => {
             
             
             <div className="select-none mt-3">
-                <button onClick={() => setIsLiked(!isLiked)} className={isLiked ? "likebtn likedbtn": "likebtn unlikedbtn"}>
+                <button onClick={handleLike} className={isLiked ? "likebtn likedbtn": "likebtn unlikedbtn"}>
                     <p className="ml-8">{post.likes.length}</p>
                 </button>
                 <p className="float-right">{dayjs().to(createdAt)}</p>
