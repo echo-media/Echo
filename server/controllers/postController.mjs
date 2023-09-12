@@ -113,7 +113,7 @@ const likePost = async (req, res) => {
       })
     }
 
-    if (post.like.includes(user.username)){
+    if (post.likes.includes(user.username)){
       post.likes = post.likes.filter(id => id != user.username)
 
       await post.save()
