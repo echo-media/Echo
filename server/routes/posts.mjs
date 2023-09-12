@@ -1,5 +1,5 @@
 import express from "express"
-import {createPost, getAllPosts, getUsersPosts, likePost, unLikePost, deletePost, getOnePost} from "../controllers/postController.mjs"
+import {createPost, getAllPosts, getUsersPosts, likePost, deletePost, getOnePost} from "../controllers/postController.mjs"
 
 const router = express.Router()
 
@@ -12,8 +12,6 @@ router.post("/newpost", createPost)
 router.get("/userposts/:user", getUsersPosts)
 
 router.post("/likepost", likePost)
-
-router.post("/unlikepost", unLikePost)
 
 router.delete("/deletepost", deletePost)
 
