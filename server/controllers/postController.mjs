@@ -8,9 +8,26 @@ const getAllPosts = async (req, res) => {
 
 }
 
+const getOnePost = async (req, res) => {
+  const { id } = req.params; // Access the id parameter
+
+  try {
+    const post = await Post.findOne({ _id: id }); // Use _id to search by the post's unique identifier
+
+    if (!post) {
+      res.status(404).json({ error: "No such post!" });
+    } else {
+      res.status(200).json(post);
+    }
+  } catch (error) {
+    // Handle any potential errors, e.g., database connection issues
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 const getUsersPosts = async (req, res) => {
   try {
-    const username = req.params.user; // Use req.query to get the username from the URL query parameters
+    const username = req.params.user; 
 
     
     const user = await User.findOne({ username });
@@ -159,4 +176,4 @@ const deletePost = async (req, res) => {
 }
 
 
-export {getAllPosts, createPost, getUsersPosts, likePost, unLikePost, deletePost};
+export {getAllPosts, createPost, getUsersPosts, likePost, unLikePost, deletePost, getOnePost};

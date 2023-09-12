@@ -11,6 +11,7 @@ import NewPost from "./pages/newpost.jsx"
 import Profile from "./pages/profile.jsx"
 import News from "./pages/news.jsx"
 import Settings from './pages/settings';
+import SinglePost from './pages/singlepost';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path = "/profile" element = {<Profile />} />
             <Route path = "/news" element = {<News />} />
             <Route path = "/settings" element = {<Settings />} />
+            <Route path = "/post/:postid" element = {<SinglePost />}/>
           </Routes> 
         </div>
       </BrowserRouter>

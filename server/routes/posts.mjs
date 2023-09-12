@@ -1,9 +1,11 @@
 import express from "express"
-import {createPost, getAllPosts, getUsersPosts, likePost, unLikePost, deletePost} from "../controllers/postController.mjs"
+import {createPost, getAllPosts, getUsersPosts, likePost, unLikePost, deletePost, getOnePost} from "../controllers/postController.mjs"
 
 const router = express.Router()
 
 router.get("/getall", getAllPosts)
+
+router.get("/getone/:id", getOnePost)
 
 router.post("/newpost", createPost)
 
