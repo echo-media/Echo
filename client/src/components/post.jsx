@@ -20,9 +20,9 @@ const Post = ({ post }) => {
     }
     
     return (
-        <button onClick = {toPostPage} className="post-details mb-5 bg-primary hover:bg-accent p-4 rounded-md text-customtxt block w-full text-left"> 
+        <button className="post-details mb-5 bg-primary hover:bg-accent p-4 rounded-md text-customtxt block w-full text-left"> 
             <div className="mb-2">
-                <h1 className="inline text-2xl"><strong>{post.title}</strong></h1>
+                <button onClick = {toPostPage} className="inline text-2xl"><strong>{post.title}</strong></button>
                 <button className="inline float-right"><em><strong>{post.user}</strong></em></button>
             </div>
             <p>{post.content}</p>
@@ -30,7 +30,7 @@ const Post = ({ post }) => {
             
             <div className="select-none mt-3">
                 <button onClick={() => setIsLiked(!isLiked)} className={isLiked ? "likebtn likedbtn": "likebtn unlikedbtn"}>
-                    <p className="ml-8">{post.likes + isLiked}</p>
+                    <p className="ml-8">{post.likes.length}</p>
                 </button>
                 <p className="float-right">{dayjs().to(createdAt)}</p>
             </div>

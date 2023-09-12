@@ -94,9 +94,10 @@ const createPost = async (req, res) => {
 
 const likePost = async (req, res) => {
   try {
-    const { postid } = req.body 
+    const { postid, userid } = req.body 
 
-    const post = Post.findOne({_id: postid})
+    const post = await Post.findOne({_id: postid})
+    const user = await User.findOne({_id: userid})
 
     if (!post) {
       res.status(400).json({
@@ -104,8 +105,15 @@ const likePost = async (req, res) => {
         error: "post not found",
       })
     }
+    
+    if (!user) {
+      res.status(400).json({
+        success: false,
+        error: "user not found",
+      })
+    }
 
-    post.likes += 1
+    post.likes.push(user.username)
 
     await post.save()
 
@@ -123,11 +131,12 @@ const likePost = async (req, res) => {
 }
 
 //define unlike post 
-const unLikePost = async (req, res ) => {
+const unLikePost = async (req, res) => {
   try {
-    const { postid } = req.body 
+    const { postid, userid } = req.body 
 
-    const post = Post.findOne({_id: postid})
+    const post = await Post.findOne({_id: postid})
+    const user = await User.findOne({_id: userid})
 
     if (!post) {
       res.status(400).json({
@@ -135,8 +144,15 @@ const unLikePost = async (req, res ) => {
         error: "post not found",
       })
     }
+    
+    if (!user) {
+      res.status(400).json({
+        success: false,
+        error: "user not found",
+      })
+    }
 
-    post.likes -= 1
+    post.likes = post.likes.filter(id => id != user.username)
 
     await post.save()
 
