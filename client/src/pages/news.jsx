@@ -4,9 +4,9 @@ import NewsList from "../components/newslist";
 
 const News = () => {
 
-  ProtectPage("/signin", "/news")
   return (
     <div className = 'h-screen '>
+      <ProtectPage notLoggedIn="/signin" loggedIn="/news" />
       <h1 className = "flex justify-center items-center relative top-[150px] select-none font-bold text-3xl"> 
         Trending News 
       </h1>

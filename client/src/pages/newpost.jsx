@@ -6,7 +6,6 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 
 const NewPost = () => {
-  ProtectPage("/signin", "/newpost");
   const { user } = useAuthContext();
 
   const [title, setTitle] = useState("");
@@ -20,6 +19,7 @@ const NewPost = () => {
 
   return (
     <div className="h-screen">
+      <ProtectPage notLoggedIn="/signin" loggedIn="/newpost" />
       <div className="flex justify-center items-center">
         <div className="relative top-[200px] left-[50px]">
           <div className="flex justify-center items-center mb-4">

@@ -4,7 +4,6 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import Post from "../components/post";
 
 const Profile = () => {
-  ProtectPage("/signin", "/profile");
 
   const { user } = useAuthContext();
   const followerCount = user?.user?.followCount || 0; // Use optional chaining and provide a default value
@@ -41,6 +40,7 @@ const Profile = () => {
 
   return (
     <div className="h-screen">
+      <ProtectPage notLoggedIn="/signin" loggedIn="/profile" />
       <div className="flex items-center justify-center px-5 w-full relative top-[150px]">
         <h1>Follower Count: {followerCount}</h1>
       </div>

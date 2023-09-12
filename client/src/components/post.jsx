@@ -22,7 +22,9 @@ const Post = ({ post }) => {
     }
 
     const handleLike = async (e) => {
-        
+        if (!user) {
+            return
+        }
         changeLiked(post._id, user.user._id)
         setIsLiked(!isLiked)
         // gives the illusion of the user liking and unliking the post without making unecessary requests to the db

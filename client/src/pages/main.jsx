@@ -2,22 +2,13 @@ import logo from "../assets/logo.svg";
 import '../index.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
-
-
+import ProtectPage from "../components/pageprotection";
 
 function Main() {
-  
-  const navigate = useNavigate()
-  const { user } = useAuthContext()
-  
-  if (user) {
-    navigate("/mainfeed")
-
-  }
 
   return (
     <div className="h-full">
-
+      <ProtectPage notLoggedIn="/" loggedIn="/mainfeed" />
       <div className="flex-wrap flex flex-col items-center justify-center w-full px-5 pt-6 md:pt-14 lg:flex-nowrap">
         <div>
           <p className="select-none text-2xl sm:text-3xl md:text-4xl md:pl-10 lg:text-5xl lg:pl-40">

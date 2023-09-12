@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/authContext';
 
@@ -7,7 +7,6 @@ const ProtectPage = ({ notLoggedIn, loggedIn }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('User:', user);
     if (!user) {
       console.log('User is null. Redirecting to login..');
       navigate(notLoggedIn); 
@@ -15,10 +14,9 @@ const ProtectPage = ({ notLoggedIn, loggedIn }) => {
       console.log('User Logged In');
       navigate(loggedIn); 
     }
-  }, [user, navigate, notLoggedIn, loggedIn]); 
+  }, [user, loggedIn, notLoggedIn]);
 
-  
-  return <div>Loading...</div>;
+  return null;
 };
 
 export default ProtectPage;

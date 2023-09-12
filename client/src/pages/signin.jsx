@@ -4,8 +4,6 @@ import { useSignIn } from "../hooks/useSignIn.jsx"
 import ProtectPage from '../components/pageprotection';
 
 const SignIn = () => {
-  // redirect if already logged in
-  ProtectPage("/signin", "/mainfeed")
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -20,6 +18,7 @@ const SignIn = () => {
   
   return (
     <div className = 'h-screen'>
+      <ProtectPage notLoggedIn="/signin" loggedIn="/mainfeed" />
       <div className="flex justify-center">
         <div className = "relative top-[200px]">
           <div className = 'flex justify-center items-center'>

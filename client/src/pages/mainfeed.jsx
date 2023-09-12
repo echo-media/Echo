@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../index.css';
 //import { useAuthContext } from '../hooks/useAuthContext';
-//import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 //import { AuthContext } from '../context/authContext';
 import ProtectPage from "../components/pageprotection";
 import Post from "../components/post"
@@ -23,12 +23,11 @@ const MainFeed = () => {
 
     fetchPosts()
   }, [])
-
-  ProtectPage("/signin", "/mainfeed")
   
   return (
-    <div className='h-full'>
-      
+
+    <div className='h-full'>      
+      <ProtectPage notLoggedIn="/signin" loggedIn="/mainfeed" />
       <div className = 'flex items-center justify-center px-5 w-full'>
         <div className="posts w-[50%]">
           {posts && posts.slice().reverse().map((post) => (
