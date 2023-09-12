@@ -10,14 +10,14 @@ const ProtectPage = ({ notLoggedIn, loggedIn }) => {
     console.log('User:', user);
     if (!user) {
       console.log('User is null. Redirecting to login..');
-      navigate(notLoggedIn); // Use notLoggedIn prop directly here
+      navigate(notLoggedIn); 
     } else {
       console.log('User Logged In');
-      navigate(loggedIn); // Use loggedIn prop directly here
+      navigate(loggedIn); 
     }
-  }, [user, navigate, notLoggedIn, loggedIn]); // Add notLoggedIn and loggedIn to the dependency array
+  }, [user, navigate, notLoggedIn, loggedIn]); 
 
-  // You should return something from your component. For example:
+  
   return <div>Loading...</div>;
 };
 
