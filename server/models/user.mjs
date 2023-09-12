@@ -35,31 +35,12 @@ const userSchema = new Schema({
       ref: "Post"
     },
   }],
-  likedPosts: [{
-    post: {
-      type: Schema.Types.ObjectId,
-      ref: "Post"
-    },
-  }],
   comments: [{
     comment: {
       type: Schema.Types.ObjectId,
       ref: "Comment",
     },
   }],
-  likedComments: [{
-    comment: {
-      type: Schema.Types.ObjectId,
-      ref: "Comment",
-    },
-  }],
-  followCount: {
-    type: Number,
-    default: 0,
-    min: 0,
-
-
-  }
 }, {timestamps: true})
 
 

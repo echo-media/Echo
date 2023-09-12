@@ -24,6 +24,10 @@ const postSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Comment"
   }],
+  shares: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }],
   edited: {
     type: Boolean,
     default: false,

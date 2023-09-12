@@ -18,10 +18,10 @@ const commentSchema = new Schema({
     type: String,
     required: true,
   },
-  likes: {
-    type: Number,
-    default: 0,
-  }
+  likes: [{
+    type: String,
+    ref: "User"
+  }]
 }, {timestamps: true})
 
 const Comment = mongoose.model("Comment", commentSchema)
