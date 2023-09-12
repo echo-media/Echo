@@ -10,7 +10,7 @@ const Post = ({ post }) => {
     const { user } = useAuthContext()
     const navigate = useNavigate()
     const { changeLiked, error } = useLike()
-
+    
     // determine whether the user has liked the post or not and change its style accordinglyf
     const [isLiked, setIsLiked] = useState(user ? post.likes.includes(user.user.username) : false)
 
@@ -24,7 +24,13 @@ const Post = ({ post }) => {
     const handleLike = async (e) => {
         
         changeLiked(post._id, user.user._id)
-        
+        setIsLiked(!isLiked)
+        // gives the illusion of the user liking and unliking the post without making unecessary requests to the db
+        if (!isLiked) {
+            post.likes.push(user.user.username)
+        } else {
+            post.likes.pop()
+        }
     }
     
     return (
