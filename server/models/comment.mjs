@@ -4,12 +4,12 @@ const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
 
-  user: {
+  userid: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
-  post: {
+  postid: {
     type: Schema.Types.ObjectId,
     ref: "Post",
     required: true,

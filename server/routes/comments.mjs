@@ -4,8 +4,6 @@ import {getAllComments, createComment} from "../controllers/commentController.mj
 
 const router = express.Router()
 
-router.use(requireAuth)
-
 router.post("/newcomment", createComment)
 
 router.get("/getallcomments", getAllComments)
