@@ -13,7 +13,7 @@ const PORT = process.env.PORT
 
 app.use(express.json())
 app.use(cors( {
-    origin: 'https://super-concha-7027eb.netlify.app', 
+    origin: 'https://starlit-strudel-284b11.netlify.app', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true,
 } ));
