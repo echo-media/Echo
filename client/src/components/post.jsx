@@ -45,9 +45,11 @@ const Post = ({ post }) => {
             
             
             <div className="select-none mt-3">
-                <button onClick={handleLike} className={isLiked ? "likebtn likedbtn": "likebtn unlikedbtn"}>
+                <button onClick={handleLike} className={isLiked ? "likebtn likedbtn mx-4": "likebtn unlikedbtn mx-4"}>
                     <p className="ml-8">{post.likes.length}</p>
                 </button>
+                <button className = "mx-4"> Share Post </button>
+                <button className = "nx-4"> Echo Post </button>
                 <p className="float-right">{dayjs().to(createdAt)}</p>
             </div>
             

@@ -8,13 +8,24 @@ const getAllComments = async (req, res) => {
     res.status(200).json(allcomments)
 }
 
+const getPostsComments = async (req, res) => {
+  const { postid } = req.params
+
+  const postscomments = await Comment.find({postid: postid})
+
+  res.status(200).json({
+    postid: postid,
+    comments: postscomments
+  })
+}
+
 //define post comments 
 const createComment = async (req, res) => {
-    const { userid, postid, content } = req.body
+    const { username, postid, content } = req.body
   
     try {
       // Check if user and postid exist and are valid
-      const existingUser = await User.findOne({ _id: userid })
+      const existingUser = await User.findOne({ username: username })
       const existingPost = await Post.findOne({ _id: postid })
   
       if (!existingUser) {
@@ -39,7 +50,7 @@ const createComment = async (req, res) => {
       }
   
       // Create a new comment
-      const newComment = await Comment.create({ userid, postid, content })
+      const newComment = await Comment.create({ user: username, postid, content })
       
       // Update the post's comments array
       existingPost.comments.push(newComment._id)
@@ -59,5 +70,5 @@ const createComment = async (req, res) => {
     }
 }
 
-export {getAllComments, createComment};
+export {getAllComments, createComment, getPostsComments};
 

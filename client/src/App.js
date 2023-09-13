@@ -12,6 +12,7 @@ import Profile from "./pages/profile.jsx"
 import News from "./pages/news.jsx"
 import Settings from './pages/settings';
 import SinglePost from './pages/singlepost';
+import Friends from './pages/friends';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
             <Route path = "/profile" element = {<Profile />} />
             <Route path = "/news" element = {<News />} />
             <Route path = "/settings" element = {<Settings />} />
-            <Route path = "/post/:postid" element = {<SinglePost />}/>
+            <Route path = "/post/:postid" element = {<SinglePost />} />
+            <Route path = "/friends" element = {<Friends />} /> 
           </Routes> 
         </div>
       </BrowserRouter>

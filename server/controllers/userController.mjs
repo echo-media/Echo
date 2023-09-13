@@ -215,6 +215,17 @@ const unFollow = async (req, res) => {
   }
 }
 
+//define new following and unfollowing function IN PROGRESS...
+
+const followUser = async (req, res) => {
+  const { follower, toFollow } = req.body
+
+  const followingUser = await User.findOne({ username: follower })
+  const userToFollow = await User.findOne({ username: toFollow })
 
 
-export {getUser, getUsers, createUser, deleteUser, updateUser, loginUser, newFollower, unFollow};
+}
+
+
+
+export {getUser, getUsers, createUser, deleteUser, updateUser, loginUser, followUser};
