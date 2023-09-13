@@ -70,5 +70,50 @@ const createComment = async (req, res) => {
     }
 }
 
-export {getAllComments, createComment, getPostsComments};
+const likeComment = async (req, res) => {
+  try {
+    const { commentid, userid } = req.body 
+
+    const comment = await Comment.findOne({_id: commentid})
+    const user = await User.findOne({_id: userid})
+
+    if (!comment) {
+      res.status(400).json({
+        success: false,
+        error: "comment not found",
+      })
+    }
+    
+    if (!user) {
+      res.status(400).json({
+        success: false,
+        error: "user not found",
+      })
+    }
+
+    if (comment.likes.includes(user.username)){
+      comment.likes = comment.likes.filter(id => id != user.username)
+
+      await comment.save()
+    } else {
+      comment.likes.push(user.username)
+
+      await comment.save()
+
+    }
+
+    res.status(200).json({
+      sucess: true,
+      user: comment.user,
+      likes: comment.likes
+    })
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: error.message
+    })
+  }
+}
+
+export {getAllComments, createComment, getPostsComments, likeComment};
 

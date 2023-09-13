@@ -34,7 +34,21 @@ const Post = ({ post }) => {
             post.likes.pop()
         }
     }
+
+
+    const handleShare = () => {
+    // Create a link to the dashboard
+    const dashboardLink = `http://localhost:3000/post/${post._id}`; 
     
+    navigator.clipboard.writeText(dashboardLink)
+        .then(() => {
+        alert("You have copied the link to this post");
+        })
+        .catch((error) => {
+        console.error('Error copying to clipboard: ', error);
+
+        });
+    }
     return (
         <button className="post-details mb-5 bg-primary hover:bg-accent p-4 rounded-md text-customtxt block w-full text-left"> 
             <div className="mb-2">
@@ -48,7 +62,7 @@ const Post = ({ post }) => {
                 <button onClick={handleLike} className={isLiked ? "likebtn likedbtn mx-4": "likebtn unlikedbtn mx-4"}>
                     <p className="ml-8">{post.likes.length}</p>
                 </button>
-                <button className = "mx-4"> Share Post </button>
+                <button onClick = {handleShare} className = "mx-4"> Share Post </button>
                 <button className = "nx-4"> Echo Post </button>
                 <p className="float-right">{dayjs().to(createdAt)}</p>
             </div>

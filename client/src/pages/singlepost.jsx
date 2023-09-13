@@ -56,7 +56,7 @@ const SinglePost = () => {
   };
 
   return (
-    <div>
+    <div className='h-full'>
       <div className = "relative top-[50px]"> 
         {post && <Post post={post} />}
       </div>
@@ -72,10 +72,12 @@ const SinglePost = () => {
 
         </form>
 
-        <div className = "mt-32 mb-8">
-        {comments && comments.slice().reverse().map((comments) => (
-            <Comment  comment={comments} />
-          ))}
+        <div className = "flex items-center justify-center px-5 w-full">
+          <div className = "posts w-[80%] mt-32"> 
+            {comments && comments.slice().reverse().map((comments) => (
+                <Comment  comment={comments} />
+              ))}
+          </div>
         </div>
 
       </div>
