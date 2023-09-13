@@ -13,7 +13,7 @@ const PORT = process.env.PORT
 
 app.use(express.json())
 app.use(cors( {
-    origin: 'https://echo-zo5u.vercel.app', 
+    origin: 'http://localhost:3000', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true,
 } ));
@@ -33,11 +33,10 @@ app.use("/api/comments", commentRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("connected to db")
-        app.listen("https://echo-three-nu.vercel.app/", () => {
+        app.listen(PORT, () => {
             console.log(`listening on port ${PORT}`)
         })
     })
     .catch((error) => {
         console.log(error)
     })
-

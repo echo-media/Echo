@@ -13,7 +13,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`https://echo-three-nu.vercel.app/api/posts/userposts/${username}`, {
+        const response = await fetch(`http://localhost:4000/api/posts/userposts/${username}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json"
@@ -47,7 +47,7 @@ const Profile = () => {
 
       <div className="flex items-center justify-center px-5 w-full">
         <div className="posts w-[50%] relative top-[200px]">
-          {posts.map((post) => (
+          {posts.slice().reverse().map((post) => (
             <Post key={post._id} post={post} />
           ))}
         </div>
