@@ -6,7 +6,7 @@ export const useLike = () => {
     const changeLiked = async (postid, userid) => {
         setError(false)
 
-        const response = await fetch("/api/posts/likepost", {
+        const response = await fetch("https://echo-three-nu.vercel.app/api/posts/likepost", {
             method: "POST",
             body: JSON.stringify({postid, userid}),
             headers: {

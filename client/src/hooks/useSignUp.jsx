@@ -12,7 +12,7 @@ export const useSignup = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch("http://localhost:4000/api/users/signup", {
+        const response = await fetch("https://echo-three-nu.vercel.app/api/users/signup", {
             method: "POST",
             body: JSON.stringify( { username, email, password }),
             headers: {

@@ -33,7 +33,7 @@ app.use("/api/comments", commentRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("connected to db")
-        app.listen(PORT, () => {
+        app.listen("https://echo-three-nu.vercel.app/", () => {
             console.log(`listening on port ${PORT}`)
         })
     })
