@@ -188,7 +188,7 @@ const unFollow = async (req, res) => {
   const { id } = req.body
 
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id)
 
     if (!user) {
       return res.status(404).json({
