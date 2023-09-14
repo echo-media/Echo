@@ -8,7 +8,7 @@ export const useCreatePost = () => {
 
     const newpost = async (user, title, content, isEcho) => {
 
-        const response = await fetch("https://echosocial.onrender.com/api/posts/newpost", {
+        const response = await fetch("http://localhost:4000/api/posts/newpost", {
             method: "POST",
             body: JSON.stringify({ user, title, content, isEcho}),
             headers: {

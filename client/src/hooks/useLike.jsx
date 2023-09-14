@@ -6,7 +6,7 @@ export const useLike = () => {
     const changeLiked = async (postid, userid) => {
         setError(false)
 
-        const response = await fetch("https://echosocial.onrender.com/api/posts/likepost", {
+        const response = await fetch("http://localhost:4000/api/posts/likepost", {
             method: "POST",
             body: JSON.stringify({postid, userid}),
             headers: {

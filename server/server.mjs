@@ -13,7 +13,7 @@ const PORT = process.env.PORT
 
 app.use(express.json())
 app.use(cors( {
-    origin: 'https://echosocialmedia.netlify.app', 
+    origin: 'http://localhost:3000', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true,
 } ));

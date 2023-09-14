@@ -16,7 +16,7 @@ const SinglePost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`https://echosocial.onrender.com/api/posts/getone/${postid}`)
+        const response = await fetch(`http://localhost:4000/api/posts/getone/${postid}`)
 
         if (response.ok) {
           const json = await response.json()
@@ -31,7 +31,7 @@ const SinglePost = () => {
 
     const fetchComment = async () => {
       try {
-        const response = await fetch(`https://echosocial.onrender.com/api/comments/getpostscomments/${postid}`)
+        const response = await fetch(`http://localhost:4000/api/comments/getpostscomments/${postid}`)
 
         if (response.ok) {
           const json = await response.json()

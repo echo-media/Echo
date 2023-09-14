@@ -10,7 +10,7 @@ const MainFeed = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("https://echosocial.onrender.com/api/posts/getall")
+      const response = await fetch("http://localhost:4000/api/posts/getall")
       const json = await response.json()
 
       if (response.ok) {

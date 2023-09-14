@@ -10,6 +10,7 @@ const Post = ({ post }) => {
     const { user } = useAuthContext()
     const navigate = useNavigate()
     const { changeLiked, error } = useLike()
+
     
     // determine whether the user has liked the post or not and change its style accordinglyf
     const [isLiked, setIsLiked] = useState(user ? post.likes.includes(user.user.username) : false)
@@ -49,6 +50,7 @@ const Post = ({ post }) => {
 
         });
     }
+
     return (
         <button className="post-details mb-5 bg-primary hover:bg-accent p-4 rounded-md text-customtxt block w-full text-left"> 
             <div className="mb-2">
@@ -74,3 +76,4 @@ const Post = ({ post }) => {
 }
 
 export default Post;
+
