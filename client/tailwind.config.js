@@ -22,6 +22,7 @@ module.exports = {
         "echo": "url('/src/assets/waveform-path.svg')",
         "share": "url('/src/assets/share-square.svg')",
         "newpost": "url('/src/assets/add.svg')",
+        "comment": "url('/src/assets/comment-alt-dots.svg')",
       }
     },
   },

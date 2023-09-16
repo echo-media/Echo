@@ -26,7 +26,7 @@ const postSchema = new Schema({
   }],
   shares: [{
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "Shares"
   }],
   edited: {
     type: Boolean,

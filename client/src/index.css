@@ -95,3 +95,8 @@ img {
 .sharebtn {
   @apply bg-contain bg-no-repeat bg-share w-6
 }
+
+.commentbtn {
+  @apply bg-contain bg-no-repeat bg-comment w-6
+
+}

@@ -7,6 +7,7 @@ import relativeTime from "dayjs/plugin/relativeTime"
 import { useNavigate } from "react-router-dom";
 import { useCreatePost } from "../hooks/useCreatePost";
 import useDeletePost from "../hooks/useDeletePost.jsx"
+import { useShare } from "../hooks/useShare";
 
 const Post = ({ post }) => {
     const { user } = useAuthContext()
@@ -14,6 +15,7 @@ const Post = ({ post }) => {
     const { changeLiked, error } = useLike()
     const {newpost, echopost} = useCreatePost()
     const deletepost = useDeletePost()
+    const share = useShare()
 
     
     // determine whether the user has liked the post or not and change its style accordinglyf
@@ -40,21 +42,6 @@ const Post = ({ post }) => {
         }
     }
 
-
-    const handleShare = () => {
-    // Create a link to the dashboard
-    const dashboardLink = `http://localhost:3000/post/${post._id}`; 
-    
-    navigator.clipboard.writeText(dashboardLink)
-        .then(() => {
-        alert("You have copied the link to this post");
-        })
-        .catch((error) => {
-        console.error('Error copying to clipboard: ', error);
-
-        });
-    }
-
     const handleEcho = async () => {
 
         await echopost(user.user.username, post.title, post.content, true, post._id)
@@ -64,6 +51,24 @@ const Post = ({ post }) => {
 
         console.log(post.id)
         await deletepost(post._id)
+
+    }
+
+    const handleShare = async () => {
+
+        await share(post._id, user.user._id)
+
+        const dashboardLink = `http://localhost:3000/post/${post._id}`; 
+        
+        navigator.clipboard.writeText(dashboardLink)
+            .then(() => {
+            alert("You have copied the link to this post");
+            })
+            .catch((error) => {
+            console.error('Error copying to clipboard: ', error);
+
+            });
+        
 
     }
 
@@ -80,15 +85,18 @@ const Post = ({ post }) => {
             
             
             <div className="select-none mt-3">
-                <button onClick={handleLike} className={isLiked ? "likebtn likedbtn mr-8": "likebtn unlikedbtn mr-8"}>
+                <button onClick={handleLike} className={isLiked ? "likebtn likedbtn mr-6": "likebtn unlikedbtn mr-6"}>
                     <p className="ml-8 text-black">{post.likes.length}</p>
                 </button>
-                <button onClick = {handleShare} className = "ml-4 mr-4 sharebtn"> 
-                    <p className="text-transparent">Share</p> 
+                <button onClick = {handleShare} className = "ml-6 mr-6 sharebtn"> 
+                    <p className="ml-8 text-black">{post.shares.length}</p> 
                 </button>
-                <button onClick = {handleEcho} className = "ml-4 mr-4 echobtn"> 
+                <button onClick = {toPostPage} className = "ml-6 mr-6 commentbtn"> 
+                    <p className="ml-8 text-black">{post.comments.length}</p> 
+                </button>
+                {!post.isEcho && <button onClick = {handleEcho} className = "ml-6 mr-6 echobtn"> 
                     <p className="text-transparent">Echo</p> 
-                </button>
+                </button>}
                 {post.user === user.user.username && (
                 <button onClick = {handleDelete} className="ml-4 deletebtn">
                     <p className="text-transparent">Delete</p>
