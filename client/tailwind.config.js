@@ -23,6 +23,7 @@ module.exports = {
         "share": "url('/src/assets/share-square.svg')",
         "newpost": "url('/src/assets/add.svg')",
         "comment": "url('/src/assets/comment-alt-dots.svg')",
+        "follow": "url('/src/assets/user-add.svg')",
       }
     },
   },

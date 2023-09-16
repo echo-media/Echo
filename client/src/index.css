@@ -100,3 +100,8 @@ img {
   @apply bg-contain bg-no-repeat bg-comment w-6
 
 }
+
+.followbtn {
+  @apply bg-contain bg-no-repeat bg-follow w-6
+
+}
