@@ -95,8 +95,3 @@ img {
 .sharebtn {
   @apply bg-contain bg-no-repeat bg-share w-6
 }
-
-.newbtn {
-  @apply bg-contain bg-no-repeat bg-newpost 
-
-}
