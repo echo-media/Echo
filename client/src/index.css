@@ -73,7 +73,7 @@ img {
 
 
 .likebtn {
-  @apply bg-contain w-6 mr-2 bg-no-repeat 
+  @apply bg-contain w-6  bg-no-repeat 
 }
 
 .unlikedbtn {
@@ -82,4 +82,21 @@ img {
 
 .likedbtn {
   @apply bg-liked text-[#f9595f]
+}
+
+.deletebtn {
+  @apply bg-contain bg-no-repeat bg-trash w-6
+}
+
+.echobtn {
+  @apply bg-contain bg-no-repeat bg-echo w-6
+}
+
+.sharebtn {
+  @apply bg-contain bg-no-repeat bg-share w-6
+}
+
+.newbtn {
+  @apply bg-contain bg-no-repeat bg-newpost 
+
 }

@@ -16,8 +16,12 @@ module.exports = {
       },
       backgroundImage: {
         "liked": "url('/src/assets/liked.svg')",
-        "unliked": "url('/src/assets/unliked.svg')",
-        "unlikedHover": "url('/src/assets/unlikedHover.svg')"
+        "unliked": "url('/src/assets/heart.svg')",
+        "unlikedHover": "url('/src/assets/unlikedHover.svg')",
+        "trash": "url('/src/assets/trash.svg')",
+        "echo": "url('/src/assets/waveform-path.svg')",
+        "share": "url('/src/assets/share-square.svg')",
+        "newpost": "url('/src/assets/add.svg')",
       }
     },
   },

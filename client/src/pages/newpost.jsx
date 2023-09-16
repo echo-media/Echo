@@ -10,7 +10,7 @@ const NewPost = () => {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const newpost = useCreatePost();
+  const {newpost} = useCreatePost();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

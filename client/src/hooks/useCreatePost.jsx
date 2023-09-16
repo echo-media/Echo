@@ -16,12 +16,26 @@ export const useCreatePost = () => {
             },
         });
 
-        const json = await response.json()
         if (response.ok) {
             navigate("/mainfeed")
         } 
     }
 
-    return newpost
+    const echopost = async (user, title, content, isEcho, echoedPost) => {
+
+        const response = await fetch("http://localhost:4000/api/posts/echopost", {
+            method: "POST",
+            body: JSON.stringify({user, title, content, isEcho, echoedPost }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        if (response.ok) {
+            navigate("/")
+        } 
+    }
+
+    return {newpost, echopost}
 
 }

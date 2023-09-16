@@ -160,5 +160,44 @@ const deletePost = async (req, res) => {
   }
 }
 
+const echoPost = async (req, res) => {
+  const { user, title, content, isEcho, echoedPost } = req.body
 
-export {getAllPosts, createPost, getUsersPosts, likePost, deletePost, getOnePost};
+
+    if (!title) {
+        res.status(400).json({
+            error: "You must have a title"
+        })
+    }
+    else if (!content) {
+        res.status(400).json({
+            error: "You must have some content"
+        })
+    }
+    else if (!await User.findOne({username: user})) {
+        res.status(400).json({
+            error: "Invalid user attempting to post"
+        })
+    }
+    else{
+
+        try {
+            const newpost = await Post.create({ user, title, content, isEcho, echoedPost })
+
+            res.status(201).json({ 
+                success: true,
+                newpost: newpost
+            })
+        } catch (error) {
+            res.status(400).json( {
+                success: false,
+                error: error.message
+            })
+            
+        }
+    }
+
+}
+
+
+export {getAllPosts, createPost, getUsersPosts, likePost, deletePost, getOnePost, echoPost};
