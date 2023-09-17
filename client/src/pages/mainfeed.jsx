@@ -19,7 +19,7 @@ const MainFeed = () => {
       if (response.ok) {
         // Sort posts based on likes (descending order)
         const sortedPosts = json.slice().sort((a, b) => b.likes.length - a.likes.length);
-        setPosts(sortedPosts);
+        setPosts(json);
         setTopPosts(sortedPosts.slice(0, 5)); // Get the top 5 posts
       } else {
         console.log(json);
@@ -46,7 +46,7 @@ const MainFeed = () => {
     <div className='h-full'>
       <ProtectPage notLoggedIn="/signin" loggedIn="/mainfeed" />
       <div className='flex relative top-[100px] w-[90%]'>
-        <div className="posts w-[75%]">
+        <div className="posts w-[70%] mr-20">
           {posts &&
             posts.slice().reverse().map((post) => (
               <Post key={post._id} post={post} />
@@ -63,7 +63,7 @@ const MainFeed = () => {
             </div>
           </div>
 
-          <div className='bg-secondary rounded-md p-4 mt-8 w-full'>
+          <div className='bg-secondary rounded-md p-4 mt-8 mb-8 w-full'>
             <h1 className='inline text-2xl'> <strong> Users you might like  </strong></h1>
             <div className="w-full">
               {users &&

@@ -223,9 +223,32 @@ const followUser = async (req, res) => {
   const followingUser = await User.findOne({ username: follower })
   const userToFollow = await User.findOne({ username: toFollow })
 
+  if (!followingUser) {
+    return res.status(404).json({
+      success: false,
+      error: "Request came from an unknown user",
+    })
+  }
 
-}
+  if (!userToFollow) {
+    return res.status(404).json({
+      success: false,
+      error: "You are trying to follow an unknown user",
+    });
+  }
 
+  
+  followingUser.following.push(userToFollow)
+  userToFollow.followers.push(followingUser)
+
+  await followingUser.save()
+  await userToFollow.save()
+
+  return res.status(200).json({
+    success: true,
+    following: followingUser.following,
+  })
+};
 
 
 export {getUser, getUsers, createUser, deleteUser, updateUser, loginUser, followUser};
