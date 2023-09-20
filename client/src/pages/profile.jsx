@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ProtectPage from "../components/pageprotection";
+
 import { useAuthContext } from "../hooks/useAuthContext";
 import Post from "../components/post";
 
@@ -40,7 +40,7 @@ const Profile = () => {
 
   return (
     <div className="h-screen">
-      <ProtectPage notLoggedIn="/signin" loggedIn="/profile" />
+      
       <div className="flex items-center justify-center px-5 w-full relative top-[150px]">
         <h1>Follower Count: {followerCount}</h1>
       </div>

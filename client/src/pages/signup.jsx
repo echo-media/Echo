@@ -1,7 +1,7 @@
 import '../index.css'
 import { useState } from "react"
 import { useSignup } from "../hooks/useSignUp.jsx"
-import ProtectPage from '../components/pageprotection';
+
 
 const SignUp = () => {
 
@@ -21,7 +21,7 @@ const SignUp = () => {
 
   return (
     <div className = 'h-screen'> 
-			<ProtectPage notLoggedIn="/signup" loggedIn="/mainfeed" />
+			
 			<div className="flex justify-center">
 				<div className="relative top-[200px]">
 					<div className = 'flex justify-center items-center'>

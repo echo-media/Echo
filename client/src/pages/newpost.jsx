@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../index.css";
-import ProtectPage from "../components/pageprotection";
+
 import { useCreatePost } from "../hooks/useCreatePost";
 import { useAuthContext } from "../hooks/useAuthContext";
 
@@ -18,7 +18,7 @@ const NewPost = () => {
 
   return (
     <div className="h-screen">
-      <ProtectPage notLoggedIn="/signin" loggedIn="/newpost" />
+      
       <div className="flex items-center justify-center w-full relative top-[200px]">
         <div className="text-center">
           <h1 className="mb-4">Create a new post!</h1>

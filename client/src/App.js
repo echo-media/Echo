@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
 import Main from './pages/main';
 import SignIn from './pages/signin';
@@ -13,8 +13,11 @@ import News from "./pages/news.jsx"
 import Settings from './pages/settings';
 import SinglePost from './pages/singlepost';
 import Friends from './pages/friends';
+import { useAuthContext } from './hooks/useAuthContext';
 
 function App() {
+const { user } = useAuthContext()
+
   return (
     <div className = "App">
       <BrowserRouter>
@@ -22,16 +25,16 @@ function App() {
         <div className = "pages"> 
           <Routes>
             <Route exact path="/" element={<Main />} /> 
-            <Route path="/signin" element={<SignIn />} />
-            <Route path = '/signup' element = {<SignUp />} />
+            <Route path="/signin" element={!user ? <SignIn /> : <Navigate to = "/mainfeed"/>} />
+            <Route path = '/signup' element = {!user ? <SignUp /> : <Navigate to = "/mainfeed"/>} />
             <Route path = '/nopage' element = {<NoPage /> } />
-            <Route path = '/mainfeed' element = {<MainFeed />} />
-            <Route path = "/newpost" element = {<NewPost />} />
-            <Route path = "/profile" element = {<Profile />} />
-            <Route path = "/news" element = {<News />} />
-            <Route path = "/settings" element = {<Settings />} />
-            <Route path = "/post/:postid" element = {<SinglePost />} />
-            <Route path = "/friends" element = {<Friends />} /> 
+            <Route path = '/mainfeed' element = {user ? <MainFeed /> : <Navigate to = "/signin"/>} />
+            <Route path = "/newpost" element = {user ? <NewPost /> : <Navigate to = "/signin"/>} />
+            <Route path = "/profile" element = {user ? <Profile /> : <Navigate to = "/signin"/>} />
+            <Route path = "/news" element = {user ? <News /> : <Navigate to = "/signin"/>} />
+            <Route path = "/settings" element = {user ? <Settings /> : <Navigate to = "/signin"/>} />
+            <Route path = "/post/:postid" element = {user ? <SinglePost /> : <Navigate to = "/signin"/>} />
+            <Route path = "/friends" element = {user ? <Friends /> : <Navigate to = "/signin"/>} /> 
           </Routes> 
         </div>
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../index.css';
 import { useNavigate } from "react-router-dom";
-import ProtectPage from "../components/pageprotection";
+
 import Post from "../components/post";
 import User from '../components/user';
 import { useAuthContext } from '../hooks/useAuthContext';
@@ -44,7 +44,7 @@ const MainFeed = () => {
 
   return (
     <div className='h-full'>
-      <ProtectPage notLoggedIn="/signin" loggedIn="/mainfeed" />
+      
       <div className='flex relative top-[100px] w-[90%]'>
         <div className="posts w-[70%] mr-20">
           {posts &&
