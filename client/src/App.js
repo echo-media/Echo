@@ -9,7 +9,6 @@ import MainFeed from './pages/mainfeed';
 import NavBar from "./components/navbar.jsx"
 import NewPost from "./pages/newpost.jsx"
 import Profile from "./pages/profile.jsx"
-import News from "./pages/news.jsx"
 import Settings from './pages/settings';
 import SinglePost from './pages/singlepost';
 import Friends from './pages/friends';
@@ -45,10 +44,6 @@ function App() {
             <Route
               path="/profile"
               element={user ? <Profile /> : <Navigate to="/signin" replace />}
-            />
-            <Route
-              path="/news"
-              element={user ? <News /> : <Navigate to="/signin" replace />}
             />
             <Route
               path="/settings"

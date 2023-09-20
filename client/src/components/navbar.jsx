@@ -28,12 +28,6 @@ const NavBar = () => {
 
         {user && <div className = "float-right">
 
-              <Link to = "/news"> 
-                <button className = "bg-secondary hover:bg-purple-500 text-white navbarbtn"> 
-                  World News
-                </button>
-              </Link>
-
               <Link to = "/newpost"> 
                 <button className = "bg-secondary hover:bg-purple-500 text-white navbarbtn"> 
                   Create Post
