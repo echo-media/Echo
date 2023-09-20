@@ -16,30 +16,56 @@ import Friends from './pages/friends';
 import { useAuthContext } from './hooks/useAuthContext';
 
 function App() {
-const { user } = useAuthContext()
+  const { user } = useAuthContext()
 
   return (
-    <div className = "App">
+    <div className="App">
       <BrowserRouter>
         <NavBar />
-        <div className = "pages"> 
+        <div className="pages">
           <Routes>
-            <Route exact path="/" element={<Main />} /> 
-            <Route path="/signin" element={!user ? <SignIn /> : <Navigate to = "/mainfeed"/>} />
-            <Route path = '/signup' element = {!user ? <SignUp /> : <Navigate to = "/mainfeed"/>} />
-            <Route path = '/nopage' element = {<NoPage /> } />
-            <Route path = '/mainfeed' element = {user ? <MainFeed /> : <Navigate to = "/signin"/>} />
-            <Route path = "/newpost" element = {user ? <NewPost /> : <Navigate to = "/signin"/>} />
-            <Route path = "/profile" element = {user ? <Profile /> : <Navigate to = "/signin"/>} />
-            <Route path = "/news" element = {user ? <News /> : <Navigate to = "/signin"/>} />
-            <Route path = "/settings" element = {user ? <Settings /> : <Navigate to = "/signin"/>} />
-            <Route path = "/post/:postid" element = {user ? <SinglePost /> : <Navigate to = "/signin"/>} />
-            <Route path = "/friends" element = {user ? <Friends /> : <Navigate to = "/signin"/>} /> 
-          </Routes> 
+            <Route exact path="/" element={<Main />} />
+            <Route
+              path="/signin"
+              element={!user ? <SignIn /> : <Navigate to="/mainfeed" replace />}
+            />
+            <Route
+              path="/signup"
+              element={!user ? <SignUp /> : <Navigate to="/mainfeed" replace />}
+            />
+            <Route path="/nopage" element={<NoPage />} />
+            <Route
+              path="/mainfeed"
+              element={user ? <MainFeed /> : <Navigate to="/signin" replace />}
+            />
+            <Route
+              path="/newpost"
+              element={user ? <NewPost /> : <Navigate to="/signin" replace />}
+            />
+            <Route
+              path="/profile"
+              element={user ? <Profile /> : <Navigate to="/signin" replace />}
+            />
+            <Route
+              path="/news"
+              element={user ? <News /> : <Navigate to="/signin" replace />}
+            />
+            <Route
+              path="/settings"
+              element={user ? <Settings /> : <Navigate to="/signin" replace />}
+            />
+            <Route
+              path="/post/:postid"
+              element={user ? <SinglePost /> : <Navigate to="/signin" replace />}
+            />
+            <Route
+              path="/friends"
+              element={user ? <Friends /> : <Navigate to="/signin" replace />}
+            />
+          </Routes>
         </div>
       </BrowserRouter>
     </div>
-    
   );
 }
 
