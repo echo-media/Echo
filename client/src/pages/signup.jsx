@@ -37,7 +37,7 @@ const SignUp = () => {
             <input onChange={(e) => setPassword(e.target.value)} id = 'password' className = {emptyFields.includes('password') ? 'error': 'bg-secondary'} type ='password' placeholder='Enter your password'></input>
           </div>
           <button disabled = {isLoading} id = 'BtnConfirm' className = ' font-bold rounded-full bg-primary hover:bg-purple-500 text-white w-32 h-12 my-2'> 
-                  Sign In
+                  Sign Up
           </button> 
           {error && <div className="flex justify-center items-center font-semibold border-solid border-2 border-red-600 rounded-md px-1 mt-2 bg-red-100 text-red-500">{error}</div>}
         </form>
