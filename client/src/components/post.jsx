@@ -94,7 +94,7 @@ const Post = ({ post }) => {
                 <button onClick = {toPostPage} className = "ml-6 mr-6 commentbtn"> 
                     <p className="ml-8 text-black">{post.comments.length}</p> 
                 </button>
-                {!post.isEcho && <button onClick = {handleEcho} className = "ml-6 mr-6 echobtn"> 
+                {!post.isEcho && post.user !== user.user.username && <button onClick = {handleEcho} className = "ml-6 mr-6 echobtn"> 
                     <p className="text-transparent">Echo</p> 
                 </button>}
                 {post.user === user.user.username && (
