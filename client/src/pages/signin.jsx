@@ -21,11 +21,11 @@ const SignIn = () => {
         <form className="self-center items-center text-center w-full max-w-lg p-5 rounded m-5 bg-accent" onSubmit={handleSubmit}>
           <h1 className="text-customtxt text-xl font-bold mb-4">Sign in to Echo</h1>
           <div>
-            <label className="text-customtxt block text-sm w-full">Email</label>
+            <label className="text-customtxt text-sm w-full">Email</label>
             <input onChange={(e) => setEmail(e.target.value)} id = 'email' className = {emptyFields.includes('email') ? 'error': 'bg-secondary'} type ='text' placeholder='Enter your email'></input>
           </div>
           <div>
-            <label className="text-customtxt block text-sm">Password</label>
+            <label className="text-customtxt text-sm">Password</label>
             <input onChange={(e) => setPassword(e.target.value)} id = 'password' className = {emptyFields.includes('password') ? 'error': 'bg-secondary'} type ='password' placeholder='Enter your password'></input>
           </div>
           <button disabled = {isLoading} id = 'BtnConfirm' className = ' font-bold rounded-full bg-primary hover:bg-purple-500 text-white w-32 h-12 my-2'> 
