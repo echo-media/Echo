@@ -35,7 +35,7 @@ input.error {
 }
 
 input {
-  @apply w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500 bg-indigo-950;
+  @apply w-full p-2 border rounded focus:outline-none border-none;
 }
 
 textarea {

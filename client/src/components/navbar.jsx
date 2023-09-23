@@ -9,7 +9,7 @@ const NavBar = () => {
   const { user } = useAuthContext()
     
   return (
-      <div className="w-full pt-1 select-none">
+      <div className="w-full select-none">
           {!user && <Link to = "/"> 
             <img src={logo} alt="LOGO" className="float-left w-12 md:w-14 lg:w-20 pt-1"></img>
             <h1 className = "float-left select-none font-bold text-3xl md:text-4xl md:pt-0.5 lg:text-5xl lg:pt-2"> 
