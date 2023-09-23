@@ -139,45 +139,41 @@ const likePost = async (req, res) => {
 
 const sharePost = async (req, res) => {
   try {
-    const { postid, userid } = req.body 
+    const { postid, userid } = req.body
 
-    const post = await Post.findOne({_id: postid})
-    const user = await User.findOne({_id: userid})
+    const post = await Post.findOne({ _id: postid })
+    const user = await User.findOne({ _id: userid })
 
     if (!post) {
-      res.status(400).json({
+      return res.status(400).json({
         success: false,
         error: "post not found",
       })
     }
-    
+
     if (!user) {
-      res.status(400).json({
+      return res.status(400).json({
         success: false,
         error: "user not found",
-      })
+      });
     }
 
-  
-    post.shares.push(userid)
+    post.shares.push(userid);
 
-    await post.save()
+    await post.save();
 
-
-
-    res.status(200).json({
-      sucess: true,
+    return res.status(200).json({
+      success: true,
       user: post.user,
-      shares: post.shares
+      shares: post.shares,
     })
   } catch (error) {
-    res.status(400).json({
+    return res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     })
   }
 }
-
 
 //define delete post 
 
