@@ -23,7 +23,10 @@ function App() {
         <NavBar />
         <div className="pages">
           <Routes>
-            <Route exact path="/" element={<Main />} />
+            <Route 
+              exact path="/" 
+              element={!user ? <Main /> : <Navigate to = "/mainfeed" replace />} 
+            />
             <Route
               path="/signin"
               element={!user ? <SignIn /> : <Navigate to="/mainfeed" replace />}
