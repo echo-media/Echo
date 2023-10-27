@@ -45,15 +45,15 @@ const MainFeed = () => {
   return (
     <div className='h-full'>
       
-      <div className='flex relative top-[100px] w-[90%]'>
-        <div className="posts w-[70%] mr-20">
+      <div className='flex relative top-[100px] w-full px-[4%]'>
+        <div className="posts w-full">
           {posts &&
             posts.slice().reverse().map((post) => (
               <Post key={post._id} post={post} />
             ))}
         </div>
-        <div className="new-div ml-4 w-[25%] flex flex-col items-center">
-          <div className="bg-secondary rounded-md p-4 ">
+        <div className="hidden new-div ml-[3%] w-[35%] sm:flex flex-col items-center">
+          <div className="hidden lg:inline bg-secondary rounded-md p-4 ">
             <h1 className='inline text-2xl'> <strong> Trending Posts  </strong></h1>
             <div className = "mt-4">
               {topPosts &&
