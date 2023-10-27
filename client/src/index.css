@@ -47,7 +47,7 @@ img {
 }
 
 .navbarbtn {
-  @apply font-bold rounded-full w-20 h-8 mx-1 mt-1 sm:w-24 md:text-base md:h-10 md:w-28 md:mx-2 lg:text-lg lg:w-32 lg:h-12 lg:mt-2;
+  @apply font-bold rounded-full w-[92px] h-8 mx-1 mt-1 sm:w-24 md:text-lg md:h-10 md:w-28 md:mx-2 lg:w-32 lg:h-12 lg:mt-2;
 }
 
 .main-paragraph {

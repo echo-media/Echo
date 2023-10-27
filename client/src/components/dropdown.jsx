@@ -22,7 +22,7 @@ const DropDown = () => {
     return (
 
         <div>
-            {user && <button onClick = {ToggleDrop} className="bg-primary navbarbtn" > 
+            {user && <button onClick = {ToggleDrop} className="bg-primary navbarbtn"> 
                 {user.user.username}
             </button>}
 
@@ -31,9 +31,14 @@ const DropDown = () => {
                     Profile
                 </Link>
 
+                <Link to = "/friends" className="block px-4 py-2 text-customtxt hover:bg-custombgbtn1"> 
+                  Friends
+                </Link>
+
                 <Link to = "/settings" className="block px-4 py-2 text-customtxt hover:bg-custombgbtn1">
                     Settings
                 </Link>
+                
 
                 <Link onClick = {handleLogOut} className="block px-4 py-2 text-customtxt hover:bg-custombgbtn1">
                     Logout
