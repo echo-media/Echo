@@ -41,12 +41,12 @@ const Profile = () => {
   return (
     <div className="h-screen">
       
-      <div className="flex items-center justify-center px-5 w-full relative top-[150px]">
+      <div className="flex items-center justify-center px-5 w-full pb-8">
         <h1>Follower Count: {followerCount}</h1>
       </div>
 
-      <div className="flex items-center justify-center px-5 w-full">
-        <div className="posts w-[50%] relative top-[200px]">
+      <div className="flex items-center justify-center px-[4%] w-full">
+        <div className="posts">
           {posts.slice().reverse().map((post) => (
             <Post key={post._id} post={post} />
           ))}

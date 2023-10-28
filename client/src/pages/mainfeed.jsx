@@ -45,7 +45,7 @@ const MainFeed = () => {
   return (
     <div className='h-full'>
       
-      <div className='flex relative top-[100px] w-full px-[4%]'>
+      <div className='flex pt-[5%] md:pt-[2%] w-full px-[4%]'>
         <div className="posts w-full">
           {posts &&
             posts.slice().reverse().map((post) => (

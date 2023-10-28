@@ -26,7 +26,7 @@ const DropDown = () => {
                 {user.user.username}
             </button>}
 
-            {isOpen && <div className = "absolute z-50 mt-2 py-2 w-32 bg-custombgbtn2 border border-gray-300 rounded shadow-lg">
+            {isOpen && <div className = "absolute z-50 mt-2 py-2 w-32 bg-background bg-opacity-60 border border-gray-300 rounded shadow-lg">
                 <Link to = "/profile" className="block px-4 py-2 text-customtxt hover:bg-custombgbtn1">
                     Profile
                 </Link>
